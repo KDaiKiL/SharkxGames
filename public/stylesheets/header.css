@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Monda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+* {
+  color: white;
+}
+
+body {
+  margin: 0pc;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/*HEADER*/
+header { 
+  width: 100%;
+  height: 100px;
+  background-color: #696A77;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#containerHeader {
+  width: 1366px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 42px;
+}
+
+#barraDePesquisa{
+  width: 638px;
+  height: 30px;
+  background: #C4C4C4;
+  opacity: 0.6;
+  border: 1px solid #868686;
+  border-radius: 15px;
+  padding-left: 15px;
+  color: black;
+}
+
+::placeholder {
+  font-family: 'Monda', sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(65, 65, 65, 0.79);
+  position: relative;
+  bottom: 1px;
+}
+
+#barraDePesquisa:hover {
+  background-color: #bdbdbd;
+  border: 2px solid #838383;
+  transition: border 0.05s, background-color 1s;
+}
+
+.pesquisaOpcoes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.linhaCategoria {
+  width: 664px;
+  height: 2px;
+  background-color: #595959;
+  margin-top: 9.5px;
+  margin-bottom: 7.5px;
+}
+
+ol {
+  list-style: none;
+  display: flex;
+}
+
+.opcoes {
+  width: 572px;
+  height: 27px;
+  justify-content: space-between;
+  margin-bottom: 0px;
+  padding-left: 0px;
+}
+
+.opcoes > li {
+  font-family: 'Monda', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.opcoes > li > a {
+  font-family: 'Monda', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  color: white;
+}
+
+.opcoes > li > a:hover {
+  color:rgb(207, 207, 207);
+  transition: color 0.15s;
+}
+
+.informeCep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.informeCep > span {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 36px;
+  line-height: 45px;
+}
+
+.informeCep > .informe {
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.informeCep > p {
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 0px;
+  font-size: 20px;
+  line-height: 21px;
+}
+
+.perfil{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#cadastroEperfil {
+  width: 258px;
+  height: 29px;
+  justify-content: space-between;
+  margin-bottom: 0px;
+  padding-left: 0px;
+  margin-top: 2.5px;
+}
+
+#cadastroEperfil > li {
+  font-family: 'Monda', sans-serif;
+  font-size: 18px;
+  line-height: 29px;
+}
+
+#cadastroEperfil > li > a {
+  font-family: 'Monda', sans-serif;
+  font-size: 18px;
+  line-height: 29px;
+  color: white;
+}
+
+#cadastroEperfil > li > a:hover {
+  color:rgb(207, 207, 207);
+  transition: color 0.15s;
+}
+
+.barraCadastro{
+  width: 321px;
+  height: 39px;
+  background-color: #464646;
+  margin-bottom: 2.5px;
+}
+/*HEADER*/
+
+
+@media (max-width: 375px) {
+  
+  .informeCep{
+    display: none;
+  }
+  #barraDePesquisa{
+    width: 300%;
+  }
+  form {
+    width: 110px;
+    margin: 2px;
+  }
+  .opcoes {
+    margin-left: 20%;
+    
+    justify-content: center;
+  }
+
+  .opcoes > li {
+    margin-right: 12px;
+
+  }
+  
+}

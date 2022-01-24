@@ -1,0 +1,65 @@
+main {
+    background-color: #565656;
+}
+
+ul, li {
+    margin: 0
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.log, main form, main form .user div, #enviar, span nav, nav ul {
+    display: flex;
+}
+
+main form, main form .user div {
+    flex-direction: column;
+}
+
+.log, #enviar {
+    justify-content: center;
+}
+
+main span {
+    background-color: white;
+    width: 400px;
+    height: 380px;
+    padding: 20px 25px;
+    margin: 50px 0;
+}
+
+main label {
+    color: black;
+    margin-bottom: 2px;
+    font-size: 19px;
+}
+
+.user {
+    margin: 20px 0;
+}
+
+main form .user div {
+    margin: 15px 0;
+}
+
+#enviar button {
+    width: 100px;
+    margin-top: 20px;
+}
+
+span nav {
+    align-items: end;
+    height: 84px;
+}
+
+nav ul {
+    justify-content: space-between;
+    width: 350px;
+}
+
+nav li {
+    font-size: 12px;
+}

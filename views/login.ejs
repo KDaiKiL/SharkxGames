@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shark X | item</title>
+    <%- include('./partials/linkBootstrap') %>
+    <link rel="stylesheet" href="/stylesheets/login.css">
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+
+    <main>  
+        <div class="log">
+            <span>
+                <form action="/login" method="post">
+                    <div class="user">
+                        <div>
+                            <label for="username">Nome de usuário</label>
+                            <input type="text" id="username" name="username">
+                        </div>
+                        <div>
+                            <label for="senha">Senha</label>
+                            <input type="text" id="senha" name="senha">    
+                        </div>
+                    </div>
+                    <div id="enviar">
+                        <button type="submit">Enviar</button>
+                    </div>
+                </form>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/cadastro">Não tem uma conta? Cadastre-se!</a>
+                        </li>
+                        <li>
+                            <a href="/contato/senha">Esqueci minha senha</a>
+                        </li>
+                    </ul>
+                </nav>
+            </span>
+        </div>
+    </main>
+    
+    <%- include('./partials/footer') %>
+</body>
+
+</html> 

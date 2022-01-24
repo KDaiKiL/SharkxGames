@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Monda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+* {
+  color: white;
+}
+
+body {
+  margin: 0pc;
+}
+ 
+/*MAIN*/
+main {
+  background-color: #1F2937;
+  display: flex;
+  justify-content: center;
+  padding-right: 80px;
+}
+
+.inform1, .inform2 {
+  margin: 50px 10px 100px 10px;
+}
+
+.inputCadastro {
+  width: 450px;
+}
+
+.inputSeparar{
+  margin: 15px 6px;
+}
+
+.InputSelection {
+  width: 190px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+.dataNascimento {
+  width: 60px;
+  height: 30px;
+  font-weight: 500;
+  font-size: 17px;
+  background-color: #C4CEDB;
+  color: black;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.inputNumero{
+  width: 90px;
+}
+
+.inputComplemento {
+  width: 163px;
+}
+
+.inputCidade { 
+  width: 227px;
+}
+
+#botaoDeCadastro {
+  margin-top: 67px;
+  background-color: #177D94;
+  color: white;
+  width: 200px;
+  height: 49.31px;
+  font-size: 22px;
+  border-radius: 23px;
+}
+
+#botaoDeCadastro:hover {
+  background-color: #187488;
+  border: 2px solid rgba(1, 52, 80, 0.857);
+  color: rgb(232, 232, 232);
+  transition: all 0.2s
+}
+
+#botaoDeCadastro:active {
+  background-color: #115c6d;
+  border: 2px solid rgba(0, 39, 60, 0.857);
+}
+
+
+.justify-content-center {
+  padding-left: 55px
+}
+
+.inputCadastro, .InputSelection, .inputNumero, .inputComplemento, .inputCidade, .dataNascimento, #botaoDeCadastro {
+  border: none;
+  outline: none;
+}
+
+.inputCadastro, .InputSelection, .inputNumero, .inputComplemento, .inputCidade {
+  height: 38px;
+  font-weight: 500;
+  font-size: 17px;
+  background-color: #C4CEDB;
+  padding-left: 14px;
+  color: black;
+  border-radius: 20px;
+}
+
+.inputCadastro:hover, .InputSelection:hover, .inputNumero:hover, .inputComplemento:hover, .inputCidade:hover, .dataNascimento:hover {
+  background-color: rgb(170, 185, 201);
+  transition: all 0.2s
+}
+
+.inputCadastro:focus, .InputSelection:focus, .inputNumero:focus, .inputComplemento:focus, .inputCidade:focus, .dataNascimento:focus {
+  background-color: rgb(170, 185, 201);
+  border: 1px solid rgb(144, 139, 171)
+}
+
+/*MAIN*/

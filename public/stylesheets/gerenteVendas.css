@@ -1,0 +1,20 @@
+#adicionardescricao{
+    width: 1029px;
+    height: 423px;
+    border-radius: 10px ;
+    background-color: #707884;
+    
+    outline: none;
+    }
+    
+    label{
+        font-size: 28px;
+    
+    }
+    button{
+        background-color: #353535;
+        width: 259px;
+        height: 72px;
+        border-radius: 50px;
+        border:none;
+    }

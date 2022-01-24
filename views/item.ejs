@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shark X | item</title>
+    <link rel="stylesheet" href="/stylesheets/item.css">
+    <%- include('./partials/linkBootstrap') %>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+
+        <main>
+
+            <div class="d-flex justify-content-center">
+                <div class="blocoInforItem m-3">
+                    <div class="d-flex justify-content-around">
+                        <div class="m-5"><img src="/images/teste-06.jpg" width="80%" height="81%" alt=""></div>
+
+                        <div>
+
+                            <div class="d-flex justify-content-end m-3"> <button class="botaoCarrinhoSuperior">
+                                    <div class="d-flex">
+                                        <div class="m-3"><img src="/images/Vector (3).png" width="35px" height="28px"
+                                                alt=""></div>
+                                        <div class="d-flex align-items-center pt-2">
+                                            <div>
+                                                <p id="carrinhoSuperior">Carrinho</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button> </div>
+
+                            <div class="d-flex justify-content-center pt-5">
+                                <div>
+                                    <h2>HD 1T | Edição Barracuda</h2>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center pt-3">
+                                <div class="precos">
+                                    <p> <span class="dinheiroBrasil">R$</span> <s><span class="precoReal">1000,00</span>
+                                        </s> </p>
+
+                                    <p> <span class="dinheiroBrasil">R$</span> <span class="precosComDesconto">
+                                            800,00</span></p>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <hr width="98%">
+                            </div>
+        
+                            <div class="d-flex m-3"> <button class="adicionarAoCarrinho">
+                                    <div class="d-flex">
+                                        <div class="imagemCarrinho"><img src="/images/Vector (3).png" width="61.06px"
+                                                height="55.85px" alt=""></div>
+                                        
+                                        <div class="d-flex justify-content-center align-items-center ">
+                                            <h3>Adicionar mais produtos no carrinho</h3>
+                                        </div>
+                                    </div>
+                            </div> </button>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <hr width="98%">
+                    </div>
+
+                    <div class="d-flex justify-content-start mt-5">
+                        <div id="informacoesDoProduto">
+                            <div id="especificacoes" class="container mb-5">
+                                <div>
+                                    <h3>Especificações</h3>
+                                </div>
+                            </div>
+
+                            <div class="informacacoesDoProduto">
+
+                                <div class=" d-flex justify-content-start m-5">
+
+
+                                    <div>
+                                        <table>
+                                            <li> <span class="tituloDoProduto"> Características:</span> </li>
+                                            <li> <span class="subtitulo"> Marca:</span> Seagate</li>
+                                            <li> <span class="subtitulo">Modelo:</span>ST1000DM010</li>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class=" m-5 ">
+                                    <div>
+                                        <table>
+                                            <li> <span class="tituloDoProduto"> Interface:</span></li>
+                                            <li>SATA 6Gb/s</li>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class=" m-5 ">
+                                    <div>
+                                        <table>
+                                            <li> <span class="tituloDoProduto"> Performance:</span></li>
+                                            <li>Taxas de transferência SATA suportadas (Gb / s): 6.0/3.0/1.5</li>
+                                            <li>Taxa média de dados, leitura/gravação: 156</li>
+                                            <li>Máx. Taxa de dados, leitura/gravação OD: 210</li>
+                                            <li> <span class="subtitulo">Cache:</span> 64 MB</li>
+                                            <li><span class="subtitulo">RPM:</span> 7200</li>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class=" m-5 ">
+                                    <div>
+                                        <table>
+                                            <li> <span class="tituloDoProduto"> Configurações:</span></li>
+                                            <li> <span class="subtitulo">Heads/Discos:</span> 2/1</li>
+                                            <li><span class="subtitulo">Bytes por setor:</span> 4096 </li>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class=" m-5 ">
+                                    <div>
+                                        <table>
+                                            <li> <span class="tituloDoProduto">Confiabilidade/Integridade de
+                                                    Dados:</span></li>
+                                            <li> <span class="subtitulo">Erros de leitura não recuperáveis ​​por bits
+                                                    lidos, máx.:</span> 1 per 10E14</li>
+                                            <li><span class="subtitulo">Horário de funcionamento (por ano):</span> 2400
+                                            </li>
+                                            <li><span class="subtitulo">Limite da taxa de carga de trabalho (TB /
+                                                    ano):</span> 55</li>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class=" m-5 ">
+                                    <div>
+                                        <table>
+                                            <li> <span class="tituloDoProduto">Energia:</span></li>
+                                            <li> <span class="subtitulo">Poder de inicialização (A):</span>2.0</li>
+                                            <li><span class="subtitulo">Modo típico de operação:</span>5.3W</li>
+                                            <li><span class="subtitulo">Modo de espera/ modo de espera típico:</span>
+                                                0.94W/0.94W</li>
+                                            <li><span class="subtitulo">Tolerância de tensão, incluindo ruído
+                                                    (5V):</span>±5%</li>
+                                            <li><span class="subtitulo">Tolerância de tensão, incluindo ruído
+                                                    (12V):</span> ±10%</li>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class=" m-5 ">
+                                    <div>
+                                        <table>
+                                            <li> <span class="tituloDoProduto">Meio ambiente:</span></li>
+                                            <li> <span class="subtitulo">Operação (ambiente, min):</span>0</li>
+                                            <li><span class="subtitulo">Operação (Caixa da unidade, máx.):</span>60</li>
+                                            <li><span class="subtitulo">Não operacional (ambiente):</span> -40 a 70/li>
+                                            <li>Sem halogênio</li>
+                                            <li>Sem halogênio</span> ±10%</li>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class=" m-5 ">
+                                    <div>
+                                        <table>
+                                            <li> <span class="tituloDoProduto">Dimensões:</span></li>
+                                            <li> alt.19.99mm</li>
+                                            <li>larg.101.85mm</li>
+                                            <li>prof.146.99mm</li>
+
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class=" m-5 ">
+                                    <div>
+                                        <table>
+                                            <li> <span class="tituloDoProduto"> Conteúdo da embalagem:</span></li>
+                                            <li> - HD Seagate</li>
+
+
+                                        </table>
+                                    </div>
+                                </div>
+                                </div>  
+                                </div>
+
+                       </div>
+                       
+                    <div class="d-flex justify-content-center">
+                        <hr width="98%">
+                    </div>
+
+ <div>
+
+ <div class="m-3">
+    <div class="d-flex">
+        <div> <button class="buttonEstrela"> <img src="/images/Star 2.png" width="70px" height="60px"
+                    class="estelas" alt=""> </button> </div>
+        <div> <button class="buttonEstrela"> <img src="/images/Star 2.png" width="70px" height="60px"
+                    class="estelas" alt=""> </button> </div>
+        <div> <button class="buttonEstrela"> <img src="/images/Star 2.png" width="70px" height="60px"
+                    class="estelas" alt=""> </button> </div>
+        <div> <button class="buttonEstrela"> <img src="/images/Star 2.png" width="70px" height="60px"
+                    class="estelas" alt=""> </button> </div>
+        <div> <button class="buttonEstrela"> <img src="/images/Star 2.png" width="70px" height="60px"
+                    class="estelas" alt=""> </button> </div> 
+    </div>
+</div>   
+
+<div class="d-flex justify-content-center">
+
+<div class="d-flex justify-content-start m-4"  style="width:100%">
+<input type="text" class="adicionarComentarios" placeholder="Deixe o seu comentario"> <img src="/images/Emoji.png" width="20px" height="20px" alt="">
+</div>
+
+</div>
+
+ </div>
+
+ <div class="d-flex justify-content-center">
+    <hr width="98%">
+</div>
+
+
+<div>
+    <%- include('./partials/comentarios.ejs') %> 
+    <%- include('./partials/comentarios.ejs') %> 
+    <%- include('./partials/comentarios.ejs') %> 
+    <%- include('./partials/comentarios.ejs') %> 
+    <%- include('./partials/comentarios.ejs') %> 
+</div>
+         
+        
+   </div>
+                        
+</div>
+            
+
+
+
+
+        </main>
+
+        <%- include('./partials/footer') %>
+</body>
+ 
+</html>

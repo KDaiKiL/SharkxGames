@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Monda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+* {
+  color: white;
+}
+
+body {
+  margin: 0pc;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.caixaDoCarrinho {    
+  width: 900px;
+  height: 110px;
+  margin: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+  background-color: #72757B;
+}
+
+.hrDoCarrinho {
+  display: flex;
+  flex-direction: column;
+}
+
+.imagemCarrinhoCortado{
+  display: flex;
+  justify-content: center;
+}
+
+#botaoDeAdicionarAoCarrinho {
+  width: 324.64px;
+  height: 58px;
+  border: none;
+  background-color: #595c63;
+  border-radius: 15px ;
+  outline: none;
+  margin-bottom: 32.5px;
+}
+
+#botaoDeAdicionarAoCarrinho:hover{
+  transition-duration: 0.25s;
+  background-color: #4e5157;
+  border: 1px solid #333333;
+}
+
+#realizarCompra:hover {
+  transition-duration: 0.25s;
+  background-color: rgb(122, 122, 122);
+}
+
+ alinhar {
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+}
+
+.precoReal {
+  margin: 0;
+  font-size: 12px;
+  color: #E15252;
+  text-decoration: line-through;
+}
+
+.precosComDesconto{
+  font-size: 28px;
+  line-height: 33px;
+  color: #52DD58;
+}
+
+#realizarCompra{
+  width: 210px;
+  height: 60px;
+  border: none;
+  border-radius: 15px;
+  background-color: #828282;
+  font-size: 20px;
+  margin: 32.5px 0 40px;
+}
+
+#desconto {
+  margin: 0;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  color: #9efd8e;
+}
+
+.justify-content-between {
+  padding: 0px 60px;
+}
+
+
+.caixaDoCarrinho > div > img {
+  width: 66.94px; 
+  height: 71.77px;
+}
+
+.nomeDoProduto {
+  font-size: 26px;
+  font-weight: 400px;
+}
+
+.compras {
+  margin-top: 30px;    
+} 

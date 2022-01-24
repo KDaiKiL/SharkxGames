@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Monda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+* {
+  color: white;
+}
+
+body {
+  margin: 0pc;
+}
+
+
+main {
+  background-color: #626262;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+#carouselExampleDark{
+  background-color: white;
+  width: 1100px;
+}
+
+#carouselExampleIndicators {
+  width: 1349px; 
+  height: 105px;
+}
+
+.descontoCarrosel {
+  color: black;
+}
+
+#separamentoCarrosel {
+  margin-top: 75px;
+  margin-bottom: 120px;
+}
+
+.produtos {
+  width: 1160px;
+}
+
+#titleCategory {
+  margin-left: 13px;
+}
+
+.caixa {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 6px rgb(0 0 0 / 25%); 
+  margin: 17px 15px;
+}
+
+.caixa:hover {
+  box-shadow: 2px 3px 5px rgb(0 0 0 / 25%), -2px 3px 5px rgb(0 0 0 / 25%);
+  transition: 0.05s; 
+}
+
+.separarLinhasDeCaixas {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#produtoNome {
+  width: 162px;
+  font-size: 15px;
+  font-weight: 100;
+  margin-bottom: 9px;
+}
+
+
+.precosComDesconto{
+  font-size: 28px;
+  line-height: 33px;
+  color: #52DD58;
+}
+
+.precos {
+  background: #3c3c3c;
+  padding: 10px 20px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.precoReal {
+  margin-top: 9px;
+  margin-bottom: 1.5px;
+  font-size: 12px;
+  line-height: 14px;
+  color: #E15252;
+  text-decoration: line-through;
+}
+
+#desconto {
+  margin: 0;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  color: #9efd8e;
+}
+
+#frete {
+  margin-top: 15px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  color: #D6D040;
+}
+
+#juros {
+  margin: 0;
+  font-size: 12px;
+  line-height: 14px;
+  color: #DAFF71;
+}
+
+
+.caixa > img {
+  width: 200.82px;
+  height: 215.32px;
+  box-shadow: 0px 2px 3px rgb(0 0 0 / 25%);
+  position: relative;
+  z-index: 1;
+}
+ 
+
+@media (max-width: 375px) {
+ 
+  #carouselExampleDark{
+ 
+    width: 92%;
+    height: 40vw;
+  }
+
+  
+}

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Monda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+* {
+  color: white;
+}
+
+body {
+  margin: 0pc;
+}
+
+/*FOOTER/*/ 
+footer {
+  background-color: #393939;
+  width: 100%;
+  display: flex;
+  padding-right: 160px;
+  align-items: center;
+  justify-content: center;
+}
+
+#endereco > p {
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  color: #B1B1B1;
+  font-weight: 600;
+}
+
+
+#opcoesDeContato {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-right: 300px;
+}
+
+.informacoesFooter {
+  margin: 15px 0px;
+  margin-left: 30px;
+}
+
+#opcoesDeContato > li > a {
+  color: white;
+}
+
+#opcoesDeContato > li > a:hover {
+  color:rgb(207, 207, 207); 
+  transition: color 0.15s;
+}
+
+/*FOOTER/*/

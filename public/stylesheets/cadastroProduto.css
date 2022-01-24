@@ -1,0 +1,14 @@
+main {
+    background-color: #565656;
+}
+
+.cadProduto {
+    display: flex;
+    justify-content: baseline;
+    padding: 50px 0 70px 60px;
+}
+
+form {
+    display: flex;
+    flex-direction: column
+}
