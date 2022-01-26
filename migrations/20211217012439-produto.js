@@ -9,9 +9,8 @@ module.exports = {
      */
      await queryInterface.createTable('produto', { 
       id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull:false,
-        autoIncrement:true,
         primaryKey:true
     },
 
