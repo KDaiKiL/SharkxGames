@@ -46,7 +46,7 @@ CREATE TABLE produtos (
 CREATE TABLE imagens (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     carrinho VARCHAR(100) NOT NULL,
-    produto_id INT(10) NOT NULL,
+    produto_id INT(10) UNSIGNED NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY produto_fk (produto_id) REFERENCES produtos(id)
 );
