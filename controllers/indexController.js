@@ -93,6 +93,7 @@ const indexController = {
       const { nome,preco,desconto,categoria } = req.body
 
       const produto = await Produto.create({
+        id:uuid(),
         nome,
         preco,
         desconto,
@@ -156,21 +157,52 @@ const indexController = {
     }, 
     cadastrarCartao: async (req,res) => {
 
-      const { nome_cartao,bandeira_cartao, numero_cartao,tipo_cartao,cvv} = req.body
+      const { nome,bandeira, numero,tipo,cvv} = req.body
 
       const cartaoCadastrado = await Cartao.create({
 
          id: uuid(),
-         nome_cartao,
-         bandeira_cartao,
-         numero_cartao,
-         tipo_cartao,
+         nome,
+         bandeira,
+         numero,
+         tipo,
          cvv
 
       })
 
       res.json(cartaoCadastrado)
     },
+
+    updateCartao: async (req,res) => {
+
+      const { id } = req.params
+
+      const { nome, bandeira, numero, tipo, cvv} = req.body
+
+      const Update = await Cartao.update({
+         nome,
+         bandeira,
+         numero,
+         tipo,
+         cvv
+      },{ where: { id }})
+
+      if(Update == 1) {
+        return res.status(201).json({mensagem: 'Sua alteração foi feita com sucesso'})
+      } else {
+        return res.status(404).json({mensagem: 'Sua alteração já foi realizada'})
+      }
+    },
+    destruirCartao: async (req,res) => {
+      const { id } = req.params 
+
+      const destruir = await Cartao.destroy({
+        where : { id }
+      })
+
+    },
+
+    
 
     termos: (req, res) => {
       res.render('termos')

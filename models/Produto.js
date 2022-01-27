@@ -3,9 +3,8 @@ module.exports = (sequelize,DataTypes) => {
 
     const Produto = sequelize.define('Produto',{
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull:false,
-            autoIncrement:true,
             primaryKey:true
         },
 
