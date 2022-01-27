@@ -15,4 +15,4 @@ for(let caixa of caixas) {
         this.children[1].children[0].style.fontSize = ""
         this.children[1].children[0].style.fontWeight = ""
     })
-}
+} 

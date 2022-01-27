@@ -63,3 +63,4 @@ CREATE TABLE compras (
     FOREIGN KEY cartao_fk (cartao_id) REFERENCES cartoes(id)
 );
 
+ 
