@@ -39,6 +39,7 @@ CREATE TABLE produtos (
     categoria VARCHAR(50) NOT NULL,
     preco VARCHAR(10) NOT NULL,
     desconto VARCHAR(10) NOT NULL,
+    descricao VARCHAR(1000),
     PRIMARY KEY (id),
     FOREIGN KEY user_fk (usuario_id) REFERENCES users(id)
 );

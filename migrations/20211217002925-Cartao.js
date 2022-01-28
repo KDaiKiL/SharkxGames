@@ -19,7 +19,8 @@ module.exports = {
 
     nome: { 
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        
     },
 
     bandeira: { 
@@ -41,6 +42,9 @@ module.exports = {
       type: Sequelize.INTEGER,
       allowNull: false
     }
+
+
+
 
 }
      );

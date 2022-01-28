@@ -172,6 +172,11 @@ ol {
   background-color: #464646;
   margin-bottom: 2.5px;
 }
+
+.btnHeader {
+  color:rgb(207, 207, 207);
+  transition: color 0.15s;
+}
 /*HEADER*/
 
 
