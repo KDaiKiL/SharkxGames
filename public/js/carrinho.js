@@ -35,4 +35,4 @@ ofertas.addEventListener("mouseover", function () {
           })
     }
   });
-  
+   
