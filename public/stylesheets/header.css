@@ -14,7 +14,6 @@ a {
     text-decoration: none;
 }
 
-
 /*HEADER*/
 header { 
   width: 100%;
@@ -34,6 +33,11 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0px 42px;
+}
+
+#containerHeader img {
+  width: 130px; 
+  margin-right: -35px;
 }
 
 #barraDePesquisa{
@@ -173,34 +177,238 @@ ol {
   margin-bottom: 2.5px;
 }
 
-.btnHeader {
+#ofertas:hover {
   color:rgb(207, 207, 207);
+  cursor: pointer;
   transition: color 0.15s;
 }
+
+#carouselExampleDark {
+  width: auto
+}
+
 /*HEADER*/
 
 
-@media (max-width: 375px) {
-  
-  .informeCep{
+@media (max-width: 1339px) {
+  .informeCep {
     display: none;
   }
-  #barraDePesquisa{
-    width: 300%;
+}
+
+@media (max-width: 1247px) {
+  #containerHeader {
+    transform: scale(0.95);
+    padding: 0px 20px;
   }
-  form {
-    width: 110px;
-    margin: 2px;
+}
+
+@media (max-width: 1199px) {
+  #containerHeader {
+    padding: 0px 15px;
   }
-  .opcoes {
-    margin-left: 20%;
-    
-    justify-content: center;
+}
+
+@media (max-width: 1186px) {
+  #containerHeader {
+    transform: scale(0.9);
+    padding: 0px 0px;
+  }
+}
+
+@media (max-width: 1139px) {
+  #containerHeader {
+    transform: scale(0.85);
+    padding: 0px -10px;
+  }
+  #containerHeader img {
+    margin-right: 0px;
+  }
+  .pesquisaOpcoes {
+    margin: 0 35px;
+  }
+  .perfil {
+    margin-left: 35px;
+  }
+}
+
+@media (max-width: 1063px) {
+  #containerHeader img {
+    margin-right: -10px;
+  }
+  .pesquisaOpcoes {
+    margin: 0 25px;
+  }
+  .perfil {
+    margin-left: 25px;
+  }
+}
+
+@media (max-width: 1063px) {
+  #containerHeader img {
+    margin-right: -15px;
+  }
+  .pesquisaOpcoes {
+    margin: 0 20px;
+  }
+  .perfil {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 1017px) {
+  #containerHeader {
+    transform: scale(0.8);
+  }
+  #containerHeader img {
+    margin-right: -10px;
+  }
+  .pesquisaOpcoes {
+    margin: 0 25px;
+  }
+  .perfil {
+    margin-left: 25px;
+  }
+}
+
+@media (max-width: 977px) {
+  #containerHeader {
+    transform: scale(0.8);
+  }
+  #containerHeader img {
+    margin-right: -15px;
+  }
+  .pesquisaOpcoes {
+    margin: 0 20px;
+  }
+  .perfil {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 949px) {
+  #containerHeader {
+    transform: scale(0.75);
+  }
+  #containerHeader img {
+    margin-right: -10px;
+  }
+  .pesquisaOpcoes {
+    margin: 0 25px;
+  }
+  .perfil {
+    margin-left: 25px;
+  }
+}
+
+@media (max-width: 915px) {
+  #containerHeader {
+    transform: scale(0.75);
+  }
+  #containerHeader img {
+    margin-right: -15px;
+  }
+  .pesquisaOpcoes {
+    margin: 0 20px;
+  }
+  .perfil {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 897px) {
+  header {
+    height: 97px;
   }
 
-  .opcoes > li {
-    margin-right: 12px;
-
+  #containerHeader {
+    transform: scale(0.7);
   }
-  
+  #containerHeader img {
+    margin-right: -10px;
+  }
+  .pesquisaOpcoes {
+    margin: 0 25px;
+  }
+  .perfil {
+    margin-left: 25px;
+  }
+}
+
+@media (max-width: 840px) {
+  #containerHeader {
+    transform: scale(0.68);
+  }
+  #containerHeader img {
+    margin-right: -15px;
+  }
+  .pesquisaOpcoes {
+    margin: 0 20px;
+  }
+  .perfil {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 799px) {
+  #containerHeader {
+    transform: scale(0.9);
+  }
+  .perfil {
+    display: none;
+  }
+}
+
+@media (max-width: 745px) {
+  #containerHeader img {
+    margin-right: -20px;
+  }
+}
+
+@media (max-width: 732px) {
+  #containerHeader {
+    transform: scale(0.83);
+  }
+}
+
+@media (max-width: 679px) {
+  #containerHeader {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 650px) {
+  #containerHeader {
+    transform: scale(0.73)
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    height: 95px
+  }
+
+  #containerHeader {
+    height: 95px;
+    font-size: 14px;
+    transform: scale(0.8);
+  }
+
+  #containerHeader img {
+    display: none;
+  }
+
+  #barraDePesquisa {
+    height: 33px
+  }
+}
+
+@media (max-width: 565px) {
+  header {
+    width: 100%;
+  }
+
+  #containerHeader {
+    transform: scale(0.75);
+  }
 }
