@@ -55,4 +55,9 @@ router.post('/cartao/cadastrar',indexController.cadastrarCartao)
 router.put('/cartao/update/:id',indexController.updateCartao)
 router.delete('/cartao/delete/:id',indexController.destruirCartao)
 
+//Usuario
+
+router.post('/usuario/criar',indexController.criarUsuario)
+router.get('/usuario/ver',indexController.pegarUsuario)
+
 module.exports = router  
