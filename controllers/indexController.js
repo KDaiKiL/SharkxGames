@@ -242,6 +242,46 @@ const indexController = {
 
     res.json(us)
 
+  }, 
+
+  pegarUsuarioPorId: async (req,res) => {
+
+    const { id } = req.params
+
+    const users = await Usuario.findByPk(id)
+
+    res.json(users)
+  },
+
+  editarUsuario: async (req,res) => {
+    const { id } = req.params
+    const { nome, dataNascimento, telefone, cpf, endereco, estado, bairro, cidade, complemento, referencia, userName, senha, email, imagemPerfil, imagemDeFundo } = req.body
+
+    const usersUpdate = await Usuario.update({
+
+      nome, 
+      dataNascimento, 
+      telefone, 
+      cpf,
+       endereco, 
+      estado, 
+      bairro, 
+      cidade, 
+      complemento,
+       referencia, 
+      userName, 
+      senha, 
+      email,
+       imagemPerfil, 
+      imagemDeFundo
+    },{
+      where: { id }})
+
+      if (usersUpdate == 1) {
+        return res.status(201).json({ mensagem: 'Sua alteração foi feita com sucesso' })
+      } else {
+        return res.status(404).json({ mensagem: 'Sua alteração já foi realizada' })
+      }
   }
 
 };

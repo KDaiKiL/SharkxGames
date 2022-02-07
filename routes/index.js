@@ -59,5 +59,7 @@ router.delete('/cartao/delete/:id',indexController.destruirCartao)
 
 router.post('/usuario/criar',indexController.criarUsuario)
 router.get('/usuario/ver',indexController.pegarUsuario)
+router.get('/usuario/ver/:id',indexController.pegarUsuarioPorId)
+router.put('/usuario/update/:id',indexController.editarUsuario)
 
 module.exports = router  
