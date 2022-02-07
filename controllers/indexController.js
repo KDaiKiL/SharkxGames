@@ -1,9 +1,12 @@
 const fs = require('fs');
 const { v4: uuid } = require('uuid');
 
-const { Produto } = require('../Models')
-const { Cartao } = require('../models');
-const { Usuario } = require('../models')
+// const { Produto } = require('../models')
+// const { Cartao } = require('../models');
+// const { Usuario } = require('../models')
+
+
+const { Usuario, Produto, Cartao } = require('../models')
 
 const indexController = {
   index: (req, res) => {
