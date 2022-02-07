@@ -54,3 +54,43 @@ footer {
 }
 
 /*FOOTER/*/
+
+@media (max-width: 1260px) {
+  footer {
+    padding-right: 0px;
+  }
+}
+
+@media (max-width: 1070px) {
+  #opcoesDeContato {
+    justify-content: initial;
+    padding-right: 0;
+  }
+  #opcoesDeContato li {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 799px) {
+  footer {
+    height: 150px;
+  }
+  footer, #endereco p {
+    font-size: 14px;
+  }
+  footer img {
+    display: none
+  }
+}
+
+@media (max-width: 586px) {
+  footer, #endereco p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 520px) {
+  footer, #endereco p {
+    font-size: 11px;
+  }
+}
