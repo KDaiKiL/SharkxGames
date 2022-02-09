@@ -37,17 +37,11 @@ const indexController = {
     res.render('cadastroProduto')
   },
   novoProduto: (req, res) => {
-    // let content = fs.readFileSync("./json/db.json", "utf8")
-    // let db = JSON.parse(content)
+   
     let img = '/images/upload/' + req.file.originalname
     let { nome, valor, descricao } = req.body
 
-    // db.produto.push({nome, valor: Number(valor), img, descricao})
-
-    // content = JSON.stringify(db)
-
-    // fs.writeFileSync("./json/db.json", content, "utf-8")
-
+  
     res.redirect("/home")
   },
 
@@ -129,16 +123,15 @@ const indexController = {
 
     const { id } = req.params
 
-    const destuir = await Produto.destroy({
+    const destruir = await Produto.destroy({
       where: { id }
     })
 
-    if (destuir == null) {
-      return res.status().json({ mensagem: 'Produto não encontrado' })
-    }
-    else {
-      return res.status().json({ mensagem: 'tudo certo' })
-    }
+    if(destruir == 1){
+      return res.status(204).json({ mensagem: "O usuario foi deletado"})
+   }else {
+     return res.status(204).json({ mensagem: "O usuario já foi deletado"})
+   }
 
   },
 
@@ -192,9 +185,9 @@ const indexController = {
     }, { where: { id } })
 
     if (Update == 1) {
-      return res.status(201).json({ mensagem: 'Sua alteração foi feita com sucesso' })
+      return res.status(204).json({ mensagem: 'Sua alteração foi feita com sucesso' })
     } else {
-      return res.status(404).json({ mensagem: 'Sua alteração já foi realizada' })
+      return res.status(204).json({ mensagem: 'Sua alteração já foi realizada' })
     }
   },
   destruirCartao: async (req, res) => {
@@ -203,6 +196,12 @@ const indexController = {
     const destruir = await Cartao.destroy({
       where: { id }
     })
+
+    if(destruir == 1){
+      return res.status(204).json({ mensagem: "O cartão foi deletado"})
+   }else {
+     return res.status(204).json({ mensagem: "O cartão já foi deletado"})
+   }
 
   },
 
@@ -255,6 +254,7 @@ const indexController = {
 
   editarUsuario: async (req,res) => {
     const { id } = req.params
+    
     const { nome, dataNascimento, telefone, cpf, endereco, estado, bairro, cidade, complemento, referencia, userName, senha, email, imagemPerfil, imagemDeFundo } = req.body
 
     const usersUpdate = await Usuario.update({
@@ -282,7 +282,25 @@ const indexController = {
       } else {
         return res.status(404).json({ mensagem: 'Sua alteração já foi realizada' })
       }
-  }
+
+  },
+
+  apagarUsuario: async (req, res) => {
+    const { id } = req.params
+
+    const destruir = await Usuario.destroy({
+      where: { id }
+    })
+
+    if(destruir == 1){
+       return res.status(204).json({ mensagem: "O usuario foi deletado"})
+    }else {
+      return res.status(204).json({ mensagem: "O usuario já foi deletado"})
+    }
+
+  },
+
+
 
 };
 
