@@ -38,8 +38,8 @@ label {
   margin-right: 10px;
 }
 
-.dataNascimento {
-  width: 60px;
+.inputDataNascimento {
+  width: 150px;
   height: 30px;
   font-weight: 500;
   font-size: 17px;
@@ -88,7 +88,7 @@ label {
   padding-left: 55px
 }
 
-.inputCadastro, .InputSelection, .inputNumero, .inputComplemento, .inputCidade, .dataNascimento, #botaoDeCadastro {
+.inputCadastro, .InputSelection, .inputNumero, .inputComplemento, .inputCidade, .dataNasinputDataNascimentocimento, #botaoDeCadastro {
   border: none;
   outline: none;
 }
@@ -103,12 +103,12 @@ label {
   border-radius: 20px;
 }
 
-.inputCadastro:hover, .InputSelection:hover, .inputNumero:hover, .inputComplemento:hover, .inputCidade:hover, .dataNascimento:hover {
+.inputCadastro:hover, .InputSelection:hover, .inputNumero:hover, .inputComplemento:hover, .inputCidade:hover, .inputDataNascimento:hover {
   background-color: rgb(170, 185, 201);
   transition: all 0.2s
 }
 
-.inputCadastro:focus, .InputSelection:focus, .inputNumero:focus, .inputComplemento:focus, .inputCidade:focus, .dataNascimento:focus {
+.inputCadastro:focus, .InputSelection:focus, .inputNumero:focus, .inputComplemento:focus, .inputCidade:focus, .inputDataNascimento:focus {
   background-color: rgb(170, 185, 201);
   border: 1px solid rgb(144, 139, 171)
 }

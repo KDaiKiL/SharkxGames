@@ -92,6 +92,11 @@ module.exports = {
         allowNull: false
       },
 
+      numero: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+
       userName: {
         type: Sequelize.STRING,
         allowNull: false

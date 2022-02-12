@@ -75,6 +75,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
 
+    numero: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+
     complemento: {
       type: DataTypes.STRING,
       allowNull: false
@@ -102,12 +107,12 @@ module.exports = (sequelize, DataTypes) => {
 
     imagemPerfil: {
       type: DataTypes.STRING,
-      allowNull: false
+      
     },
 
     imagemDeFundo: {
       type: DataTypes.STRING,
-      allowNull: false
+      
     }
 
 

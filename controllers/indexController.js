@@ -1,5 +1,6 @@
 const fs = require('fs');
 const { v4: uuid } = require('uuid');
+const {check,validationResult,body} = require('express-validator')
 
 // const { Produto } = require('../models')
 // const { Cartao } = require('../models');
@@ -64,7 +65,8 @@ const indexController = {
 
 
 
-    //   return  res.json(db.usuarios)  
+    //   return  res.json(db.usuarios)
+      
   },
   editarProduto: (req, res) => {
     return res.render('atualizarProduto')
@@ -207,7 +209,12 @@ const indexController = {
 
   criarUsuario: async (req, res) => {
 
-    const { nome, dataNascimento, telefone, cpf, endereco, estado, bairro, cidade, complemento, referencia, userName, senha, email, imagemPerfil, imagemDeFundo } = req.body
+
+    const { nome, dataNascimento, telefone, cpf, endereco, numero, estado, bairro, cidade, complemento, referencia, userName, senha, email, imagemPerfil, imagemDeFundo } = req.body
+
+    const listaDeError =  validationResult(req)
+
+    if(listaDeError.isEmpty()) {
 
     const CriarUser = await Usuario.create({
       id: uuid(),
@@ -218,7 +225,9 @@ const indexController = {
       endereco,
       estado,
       bairro,
+      numero, 
       cidade,
+      numero, 
       complemento,
       referencia,
       userName,
@@ -228,7 +237,13 @@ const indexController = {
       imagemDeFundo
     })
 
-    res.json(CriarUser)
+    res.redirect("/home")
+
+   } else {
+     res.json(listaDeError)
+   }
+
+    
   },
 
   termos: (req, res) => {
@@ -255,7 +270,7 @@ const indexController = {
   editarUsuario: async (req,res) => {
     const { id } = req.params
     
-    const { nome, dataNascimento, telefone, cpf, endereco, estado, bairro, cidade, complemento, referencia, userName, senha, email, imagemPerfil, imagemDeFundo } = req.body
+    const { nome, dataNascimento, telefone, cpf, endereco, numero, estado, bairro, cidade, complemento, referencia, userName, senha, email, imagemPerfil, imagemDeFundo } = req.body
 
     const usersUpdate = await Usuario.update({
 
@@ -267,6 +282,7 @@ const indexController = {
       estado, 
       bairro, 
       cidade, 
+      numero, 
       complemento,
        referencia, 
       userName, 

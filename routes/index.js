@@ -3,6 +3,7 @@ const router = express.Router();
 const indexController = require('../controllers/indexController')
 const multer = require('multer')
 
+
 const storage = multer.diskStorage ({
     destination: (req, file, cb) => {
         cb(null, './public/images/upload')
@@ -57,10 +58,5 @@ router.delete('/cartao/delete/:id',indexController.destruirCartao)
 
 //Usuario
 
-router.post('/usuario/criar',indexController.criarUsuario)
-router.get('/usuario/ver',indexController.pegarUsuario)
-router.get('/usuario/ver/:id',indexController.pegarUsuarioPorId)
-router.put('/usuario/update/:id',indexController.editarUsuario)
-router.delete('/usuario/apagar/:id',indexController.apagarUsuario)
 
 module.exports = router  
