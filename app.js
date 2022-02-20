@@ -9,7 +9,7 @@ const Sequelize = require('sequelize')
 const sequelize = require('./config/database')
 const Logmiddleware = require('./middleware/validaUsuario')
 
-const db = require('./config/database')
+const db = require('./config/database') 
 
 app.use(methodOverride('_method'))
 app.use(express.json())
