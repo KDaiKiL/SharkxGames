@@ -1,19 +1,40 @@
 module.exports = (sequelize, DataTypes) => {
 
   const Usuario = sequelize.define('Usuario',{
-
+    
     id: {
       type: DataTypes.STRING,
+      autoIncrement: true,
       allowNull: false,
       primaryKey: true
     },
-
+    
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    
     nome: {
       type: DataTypes.STRING,
       allowNull: false
     },
+    
+    sobrenome: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    
+    data_nascimento: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
 
-    dataNascimento: {
+    senha: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
@@ -24,6 +45,11 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     cpf: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    
+    cep: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -65,16 +91,21 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
 
-    bairro: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-
     cidade: {
       type: DataTypes.STRING,
       allowNull: false
     },
 
+    bairro: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+
+    referencia: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    
     numero: {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -84,37 +115,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-
-    referencia: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-
-    userName: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-
-    senha: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-
-    imagemPerfil: {
-      type: DataTypes.STRING,
-      
-    },
-
-    imagemDeFundo: {
-      type: DataTypes.STRING,
-      
-    }
-
 
   },{
     timestamps: false,

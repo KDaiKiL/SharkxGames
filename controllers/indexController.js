@@ -2,11 +2,6 @@ const fs = require('fs');
 const { v4: uuid } = require('uuid');
 const {check,validationResult,body} = require('express-validator')
 
-// const { Produto } = require('../models')
-// const { Cartao } = require('../models');
-// const { Usuario } = require('../models')
-
-
 const { Usuario, Produto, Cartao } = require('../models')
 
 const indexController = {
@@ -44,29 +39,6 @@ const indexController = {
 
   
     res.redirect("/home")
-  },
-
-  cadastrar: (req, res) => {
-
-    // let content = fs.readFileSync("./json/db.json", "utf8")
-    // let db = JSON.parse(content)
-
-    // const body = req.body
-
-    // const { id,nome,sobrenome,email,telefone,cpf,senha,senhaConfirmar,dia,mes,ano,cep,endereco,numero,bairro,referencia,cidade,estado } = req.body ;
-
-    // const hase = bcrypt.hashSync(body.senha,10) ;
-
-    // db.usuarios.push( {id: uuid(),nome,sobrenome,email,telefone,cpf,senha:hase ,senhaConfirmar:hase ,dia,mes,ano,cep,endereco,numero,bairro,referencia,cidade,estado})
-
-    // content = JSON.stringify(db)
-
-    // fs.writeFileSync("./json/db.json", content, "utf-8")
-
-
-
-    //   return  res.json(db.usuarios)
-      
   },
   editarProduto: (req, res) => {
     return res.render('atualizarProduto')
@@ -209,35 +181,17 @@ const indexController = {
 
   criarUsuario: async (req, res) => {
 
-
-    const { nome, dataNascimento, telefone, cpf, endereco, numero, estado, bairro, cidade, complemento, referencia, userName, senha, email, imagemPerfil, imagemDeFundo } = req.body
+    const { username, nome, sobrenome, data_nascimento, email, senha, telefone, cpf, cep, endereco, estado, cidade, bairro, referencia, numero, complemento } = req.body
 
     const listaDeError =  validationResult(req)
 
     if(listaDeError.isEmpty()) {
 
-    const CriarUser = await Usuario.create({
-      id: uuid(),
-      nome,
-      dataNascimento,
-      telefone,
-      cpf,
-      endereco,
-      estado,
-      bairro,
-      numero, 
-      cidade,
-      numero, 
-      complemento,
-      referencia,
-      userName,
-      senha,
-      email,
-      imagemPerfil,
-      imagemDeFundo
-    })
+      const newUser = await Usuario.create({
+        username, nome, sobrenome, data_nascimento, email, senha, telefone, cpf, cep, endereco, estado, cidade, bairro, referencia, numero, complemento
+      })
 
-    res.redirect("/home")
+      res.redirect("/home")
 
    } else {
      res.json(listaDeError)
@@ -270,7 +224,7 @@ const indexController = {
   editarUsuario: async (req,res) => {
     const { id } = req.params
     
-    const { nome, dataNascimento, telefone, cpf, endereco, numero, estado, bairro, cidade, complemento, referencia, userName, senha, email, imagemPerfil, imagemDeFundo } = req.body
+    const { nome, dataNascimento, telefone, cpf, endereco, numero, estado, bairro, cidade, complemento, referencia, username, senha, email, imagemPerfil, imagemDeFundo } = req.body
 
     const usersUpdate = await Usuario.update({
 
@@ -285,7 +239,7 @@ const indexController = {
       numero, 
       complemento,
        referencia, 
-      userName, 
+      username, 
       senha, 
       email,
        imagemPerfil, 
