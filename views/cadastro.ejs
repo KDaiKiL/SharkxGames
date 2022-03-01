@@ -29,22 +29,29 @@
         <form action="/usuario/criar" method="post">
           
           <div class="d-flex justify-content-end">
-            <div class="inputSeparar"> <label for="">Username: </label> <input type="text" name="userName"
-                class="inputCadastro"></div>
+
+          
+            <div class="inputSeparar"> <label for="">Username: </label> <input type="text" name="userName" id="userName"class="inputCadastro">
+           <div class="UsernameDivP"> <div> <span class="userNameText"></span> </div> </div> 
+            </div>
           </div>
           
           <div class="d-flex justify-content-end">
-            <div class="inputSeparar"> <label for="">Nome: </label> <input type="text" name="nome"
-                class="inputCadastro"></div>
+            <div class="inputSeparar"> <label for="">Nome: </label> <input type="text" name="nome" id="name" class="inputCadastro">
+              <div class="UsernameDivP"> <div> <span class="nameInputText"></span> </div> </div>
+            </div>
+            
           </div>
 
           <div class="d-flex justify-content-end">
-            <div class="inputSeparar"> <label for="">Sobrenome:</label> <input type="text" name="sobrenome"
-                class="inputCadastro"></div>
+            <div class="inputSeparar"> <label for="">Sobrenome:</label> <input type="text" id="sobrenomeInput" name="sobrenome"class="inputCadastro">
+              <div class="UsernameDivP"> <div> <span class="sobrenomeInputText"></span> </div> </div>
+            </div>
+            
           </div>
 
           <div class="d-flex justify-content-end">
-            <div class="inputSeparar"> <label for="">E-mail:</label> <input type="email" name="email"
+            <div class="inputSeparar"> <label for="">E-mail:</label> <input type="email" name="email" id="emailInput"
                 class="inputCadastro"></div>
           </div>
           <div class="d-flex justify-content-end">
@@ -153,7 +160,7 @@
         </form>
       </div>
 
-      <script src="js/cadastro.js"></script>
+      <script src="/js/cadastro.js"></script>
     </main>
 
     <%- include('./partials/footer') %>

@@ -113,4 +113,9 @@ label {
   border: 1px solid rgb(144, 139, 171)
 }
 
+.UsernameDivP{
+   display: flex;
+   justify-content: center;
+}
+
 /*MAIN*/

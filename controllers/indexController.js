@@ -2,16 +2,21 @@ const fs = require('fs');
 const { v4: uuid } = require('uuid');
 const {check,validationResult,body} = require('express-validator')
 
+
 // const { Produto } = require('../models')
 // const { Cartao } = require('../models');
 // const { Usuario } = require('../models')
 
 
-const { Usuario, Produto, Cartao } = require('../models')
+const { Usuario, Produto, Cartao } = require('../models');
+const res = require('express/lib/response');
 
 const indexController = {
   index: (req, res) => {
-    res.render('index')
+
+    const produtoVer = await Produto.findAll()
+
+    res.render('index',[{produtoVer}])
   },
   login: (req, res) => {
     res.render('login')
@@ -154,6 +159,13 @@ const indexController = {
     res.json(cartao)
 
   },
+
+  error: (req,res) => {
+    
+    
+    res.render('error')
+  },
+
   cadastrarCartao: async (req, res) => {
 
     const { nome, bandeira, numero, tipo, cvv } = req.body
@@ -236,12 +248,14 @@ const indexController = {
       imagemPerfil,
       imagemDeFundo
     })
-
-    res.redirect("/home")
+    
+    return res.redirect('/home')
 
    } else {
-     res.json(listaDeError)
+     res.json({mesagem: "Desculpa mas o seu cadastro não foi aceito"})
    }
+
+   
 
     
   },
