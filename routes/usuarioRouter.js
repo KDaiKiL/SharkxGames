@@ -27,6 +27,7 @@ router.post('/usuario/criar',logUser, [
    check("email").isEmail() ,
     
 ], indexController.criarUsuario)
+router.post('/usuario/criar', indexController.criarUsuario)
 router.get('/usuario/ver',indexController.pegarUsuario)
 router.get('/usuario/ver/:id',indexController.pegarUsuarioPorId)
 router.put('/usuario/update/:id',indexController.editarUsuario)

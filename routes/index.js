@@ -33,7 +33,7 @@ router.get('/contato/Termos-e-condicoes-gerais-de-uso_0000', indexController.ter
 
 
 //POST
-router.post('/cadastro', indexController.cadastrar)
+
 router.post('/cadastro/produto', upload.single('img'), indexController.novoProduto)
 
 

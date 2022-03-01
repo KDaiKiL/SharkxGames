@@ -12,12 +12,7 @@ module.exports = (sequelize,DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-
-        nome: { 
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-
+        
         preco: { 
             type: DataTypes.INTEGER,
             allowNull: false
@@ -31,9 +26,12 @@ module.exports = (sequelize,DataTypes) => {
         categoria: { 
             type: DataTypes.STRING,
             allowNull: false
-        }
-
-
+        },
+        
+        descricao: { 
+            type: DataTypes.STRING,
+            allowNull: false
+        },
 
     },{
         timestamps: false,

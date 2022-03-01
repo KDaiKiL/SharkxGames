@@ -23,7 +23,7 @@ main {
 }
 
 .inputCadastro {
-  width: 450px;
+  width: 445px;
 }
 
 .inputSeparar{
@@ -36,17 +36,6 @@ main {
 
 label {
   margin-right: 10px;
-}
-
-.inputDataNascimento {
-  width: 150px;
-  height: 30px;
-  font-weight: 500;
-  font-size: 17px;
-  background-color: #C4CEDB;
-  color: black;
-  border-radius: 20px;
-  text-align: center;
 }
 
 .inputNumero{
@@ -98,7 +87,7 @@ label {
   font-weight: 500;
   font-size: 17px;
   background-color: #C4CEDB;
-  padding-left: 14px;
+  padding: 0 15px;
   color: black;
   border-radius: 20px;
 }
@@ -116,6 +105,12 @@ label {
 .UsernameDivP{
    display: flex;
    justify-content: center;
+
+}
+
+select option {
+  color: black;
+  background: #91aac9;
 }
 
 /*MAIN*/

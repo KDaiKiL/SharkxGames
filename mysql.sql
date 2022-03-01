@@ -1,6 +1,6 @@
 CREATE DATABASE sharkx
  
-CREATE TABLE users (
+CREATE TABLE usuario (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(20) NOT NULL,
     nome VARCHAR(30) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE users (
     senha VARCHAR(100) NOT NULL,
     data_nascimento CHAR(10) NOT NULL,
     cep CHAR(9) NOT NULL,
-    endereço VARCHAR(100) NOT NULL,
+    endereco VARCHAR(100) NOT NULL,
     numero VARCHAR(5) NOT NULL,
     complemento VARCHAR(10) NOT NULL,
     bairro VARCHAR(10) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE users (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE cartoes (
+CREATE TABLE cartao (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
     bandeira ENUM('mastercard','alelo','visa','elo','cielo','hipercard','bradesco','nukebank') NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE cartoes (
     PRIMARY KEY (id)
 ); 
 
-CREATE TABLE produtos (
+CREATE TABLE produto (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     usuario_id INT(10) UNSIGNED NOT NULL,
     nome VARCHAR(100) NOT NULL,
@@ -41,27 +41,25 @@ CREATE TABLE produtos (
     desconto VARCHAR(10) NOT NULL,
     descricao VARCHAR(1000),
     PRIMARY KEY (id),
-    FOREIGN KEY user_fk (usuario_id) REFERENCES users(id)
+    FOREIGN KEY user_fk (usuario_id) REFERENCES usuario(id)
 );
 
-CREATE TABLE imagens (
+CREATE TABLE imagem (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     carrinho VARCHAR(100) NOT NULL,
     produto_id INT(10) UNSIGNED NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY produto_fk (produto_id) REFERENCES produtos(id)
+    FOREIGN KEY produto_fk (produto_id) REFERENCES produto(id)
 );
 
-CREATE TABLE compras (
+CREATE TABLE compra (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     usuario_id INT(10) UNSIGNED NOT NULL,
     produto_id INT(10) UNSIGNED NOT NULL,
     cartao_id INT(10) UNSIGNED NOT NULL,
     frete VARCHAR(10),
     PRIMARY KEY (id),
-    FOREIGN KEY cliente_fk (usuario_id) REFERENCES users(id),
-    FOREIGN KEY mercadoria_fk (produto_id) REFERENCES produtos(id),
-    FOREIGN KEY cartao_fk (cartao_id) REFERENCES cartoes(id)
+    FOREIGN KEY cliente_fk (usuario_id) REFERENCES usuario(id),
+    FOREIGN KEY mercadoria_fk (produto_id) REFERENCES produto(id),
+    FOREIGN KEY cartao_fk (cartao_id) REFERENCES cartao(id)
 );
-
- 
