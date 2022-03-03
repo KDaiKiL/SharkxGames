@@ -5,11 +5,11 @@ const {check,validationResult,body} = require('express-validator')
 const { Usuario, Produto, Cartao } = require('../models')
 
 const indexController = {
-  index: (req, res) => {
+  index: async (req, res) => {
 
-    const produtoVer = await Produto.findAll()
+    const produtos = await Produto.findAll()
 
-    res.render('index',[{produtoVer}])
+    res.render('index', {produtos} ) 
   },
   login: (req, res) => {
     res.render('login')
@@ -65,14 +65,15 @@ const indexController = {
 
   ProdutoCriar: async (req, res) => {
 
-    const { nome, preco, desconto, categoria } = req.body
+    const { nome, preco, desconto, categoria, descricao } = req.body
 
     const produto = await Produto.create({
       id: uuid(),
       nome,
       preco,
       desconto,
-      categoria
+      categoria,
+      descricao
     })
 
     res.json(produto)
