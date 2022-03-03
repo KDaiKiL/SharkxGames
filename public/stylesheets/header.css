@@ -170,11 +170,11 @@ ol {
   transition: color 0.15s;
 }
 
-.barraCadastro{
-  width: 321px;
+#barraCadastro{
+  width: 321px !important;
   height: 39px;
-  background-color: #464646;
   margin-bottom: 2.5px;
+  filter: hue-rotate(176deg) opacity(0.6);
 }
 
 #ofertas:hover {

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { v4: uuid } = require('uuid');
 const {check,validationResult,body} = require('express-validator')
-
+const bcrypt = require('bcrypt')
 const { Usuario, Produto, Cartao } = require('../models')
 
 const indexController = {
@@ -14,8 +14,36 @@ const indexController = {
   login: (req, res) => {
     res.render('login')
   },
+  loginUser: async (req, res) => {
+    const { email, senha, cock } = req.body
+    const usuario = await Usuario.findOne({where: { email }})
+
+    if(cock != undefined) {
+      res.cookie('log', usuario.email, {maxAge: 600000})
+    }
+
+    if( usuario == null ) {
+      res.redirect('/login')
+    } else {
+      if(bcrypt.compareSync(senha, usuario.senha)) {
+        req.session.usuario = usuario
+        res.redirect('/home')
+      } else {
+        res.redirect('/login')
+      }
+    }
+
+    
+
+
+  },
   cadastro: (req, res) => {
     return res.render('cadastro')
+  },
+  conta: async (req, res) => {
+    const { id } = req.session.usuario
+    const user = await Usuario.findByPk(id)
+    res.render('conta', { user })
   },
   pagamento: (req, res) => {
     return res.render('formaDePagamento')
@@ -196,6 +224,8 @@ const indexController = {
 
     const listaDeError =  validationResult(req)
 
+    const password = bcrypt.hashSync(senha, 10)
+
     if(listaDeError.isEmpty()) {
 
     const CriarUser = await Usuario.create({
@@ -220,6 +250,11 @@ const indexController = {
     })
     
     return res.redirect('/home')
+      const newUser = await Usuario.create({
+        username, nome, sobrenome, data_nascimento, email, senha: password, telefone, cpf, cep, endereco, estado, cidade, bairro, referencia, numero, complemento
+      })
+
+      res.redirect("/login")
 
    } else {
      res.json({mesagem: "Desculpa mas o seu cadastro não foi aceito"})
