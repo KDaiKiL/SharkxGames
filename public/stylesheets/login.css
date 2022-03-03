@@ -1,65 +1,100 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
 main {
-    background-color: #565656;
+  height: 91vh;
 }
 
-ul, li {
-    margin: 0
+main {
+  background-color: #4e495e;
+  font-family: Roboto, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-ul {
+.form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(1.4);
+}
+
+.form-section h1 {
+  font-size: 32px;
+  letter-spacing: 1px;
+  margin: 20px 0;
+  color: white;
+}
+
+.form-section form {
+  margin: 20px 0;
+  background-color: white;
+  padding: 30px 25px 16px;
+  border-radius: 5px;
+  width: 356px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-section form .input-block {
+  margin-bottom: 14px;
+}
+
+.form-section form .input-block label {
+  font-size: 14px;
+  color: darkslateblue;
+}
+
+.form-section form .input-block input {
+  width: 100%;
+  display: block;
+  margin-top: 8px;
+  padding: 7px;
+  font-size: 16px;
+  color: #7159c1;
+  border-radius: 2px;
+  border: 1px solid #ccddef;
+  outline-color: #7159c1;
+}
+
+.input-coockie {
+    margin-left: 5px
+}
+
+.input-coockie label {
+    font-size: 13px;
+    color: #4c447d
+}
+
+.form-section form .btn-login {
+  display: block;
+  min-width: 120px;
+  border: none;
+  background-color: #7159c1;
+  color: white;
+  border-radius: 25px;
+  margin: auto;
+  margin-bottom: 26px;
+  padding: 7px;
+}
+
+.form-wrapper nav li {
     list-style: none;
-    padding: 0;
 }
 
-.log, main form, main form .user div, #enviar, span nav, nav ul {
-    display: flex;
-}
-
-main form, main form .user div {
-    flex-direction: column;
-}
-
-.log, #enviar {
-    justify-content: center;
-}
-
-main span {
-    background-color: white;
-    width: 400px;
-    height: 380px;
-    padding: 20px 25px;
-    margin: 50px 0;
-}
-
-main label {
+.form-wrapper nav a {
+    font-size: 11px;
     color: black;
-    margin-bottom: 2px;
-    font-size: 19px;
 }
 
-.user {
-    margin: 20px 0;
-}
-
-main form .user div {
-    margin: 15px 0;
-}
-
-#enviar button {
-    width: 100px;
-    margin-top: 20px;
-}
-
-span nav {
-    align-items: end;
-    height: 84px;
-}
-
-nav ul {
+.form-wrapper nav ul {
+    display: flex;
     justify-content: space-between;
-    width: 350px;
-}
-
-nav li {
-    font-size: 12px;
 }

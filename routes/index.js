@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const indexController = require('../controllers/indexController')
 const multer = require('multer')
+const auth = require('../middleware/auth')
+const login = require('../middleware/login')
 
 
 const storage = multer.diskStorage ({
@@ -22,7 +24,8 @@ router.get('/pagamento', indexController.pagamento)
 router.get('/editar', indexController.editarProduto)
 router.get('/cadastro', indexController.cadastro)
 router.get('/carrinho', indexController.carrinho)
-
+router.get('/login', login, indexController.login)
+router.get('/conta', auth, indexController.conta)
 router.get('/item', indexController.item)
 router.get('/opcoes-entrega', indexController.OpcoesEntrega)
 router.get('/cadastro/produto', indexController.pageProduto)
@@ -35,6 +38,7 @@ router.get('/contato/Termos-e-condicoes-gerais-de-uso_0000', indexController.ter
 //POST
 
 router.post('/cadastro/produto', upload.single('img'), indexController.novoProduto)
+router.post('/login', indexController.loginUser)
 
 
 
