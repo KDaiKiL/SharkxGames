@@ -17,19 +17,24 @@ const indexController = {
   loginUser: async (req, res) => {
     const { email, senha, cock } = req.body
     const usuario = await Usuario.findOne({where: { email }})
+    const erros = []
 
-    if(cock != undefined) {
-      res.cookie('log', usuario.email, {maxAge: 600000})
+    if(cock != undefined && usuario != null) {
+      if(bcrypt.compareSync(senha, usuario.senha)) {
+        res.cookie('log', usuario.email, {maxAge: 600000})
+      }
     }
 
     if( usuario == null ) {
-      res.redirect('/login')
+      erros.push('Err')
+      res.render('login.ejs', {erros})
     } else {
       if(bcrypt.compareSync(senha, usuario.senha)) {
         req.session.usuario = usuario
         res.redirect('/home')
       } else {
-        res.redirect('/login')
+        erros.push('Err')
+        res.render('login.ejs', {erros})
       }
     }
 
@@ -233,29 +238,6 @@ const indexController = {
     const password = bcrypt.hashSync(senha, 10)
 
     if(listaDeError.isEmpty()) {
-
-    const CriarUser = await Usuario.create({
-      id: uuid(),
-      nome,
-      dataNascimento,
-      telefone,
-      cpf,
-      endereco,
-      estado,
-      bairro,
-      numero, 
-      cidade,
-      numero, 
-      complemento,
-      referencia,
-      userName,
-      senha,
-      email,
-      imagemPerfil,
-      imagemDeFundo
-    })
-    
-    return res.redirect('/home')
       const newUser = await Usuario.create({
         username, nome, sobrenome, data_nascimento, email, senha: password, telefone, cpf, cep, endereco, estado, cidade, bairro, referencia, numero, complemento
       })
@@ -263,7 +245,7 @@ const indexController = {
       res.redirect("/login")
 
    } else {
-     res.json({mesagem: "Desculpa mas o seu cadastro não foi aceito"})
+     res.json(listaDeError)
    }
 
    
@@ -275,74 +257,44 @@ const indexController = {
     res.render('termos')
   },
 
-  pegarUsuario : async (req,res) => {
-
-    const us = await Usuario.findAll()
-
-    res.json(us)
-
-  }, 
-
-  pegarUsuarioPorId: async (req,res) => {
-
-    const { id } = req.params
-
-    const users = await Usuario.findByPk(id)
-
-    res.json(users)
-  },
-
   editarUsuario: async (req,res) => {
     const { id } = req.params
+    const alterado = []
     
-    const { nome, dataNascimento, telefone, cpf, endereco, numero, estado, bairro, cidade, complemento, referencia, username, senha, email, imagemPerfil, imagemDeFundo } = req.body
+    const { username, nome, sobrenome, data_nascimento, telefone, cep, endereco, estado, cidade, bairro, referencia, numero, complemento } = req.body
 
     const usersUpdate = await Usuario.update({
-
-      nome, 
-      dataNascimento, 
-      telefone, 
-      cpf,
-       endereco, 
+      nome,
+      sobrenome,
+      data_nascimento, 
+      telefone,
+      cep, 
+      endereco, 
       estado, 
       bairro, 
       cidade, 
       numero, 
       complemento,
-       referencia, 
-      username, 
-      senha, 
-      email,
-       imagemPerfil, 
-      imagemDeFundo
+      referencia, 
+      username
     },{
-      where: { id }})
-
+      where: { id }
+    })
+    
       if (usersUpdate == 1) {
-        return res.status(201).json({ mensagem: 'Sua alteração foi feita com sucesso' })
+        alterado.push('sucess')
+        return res.redirect('/home')
       } else {
-        return res.status(404).json({ mensagem: 'Sua alteração já foi realizada' })
+        return res.redirect('/conta')
       }
 
   },
 
-  apagarUsuario: async (req, res) => {
-    const { id } = req.params
-
-    const destruir = await Usuario.destroy({
-      where: { id }
-    })
-
-    if(destruir == 1){
-       return res.status(204).json({ mensagem: "O usuario foi deletado"})
-    }else {
-      return res.status(204).json({ mensagem: "O usuario já foi deletado"})
-    }
-
+  sairConta: (req, res) => {
+    res.clearCookie('log');
+    req.session.usuario = undefined
+    res.redirect('/login')
   },
-
-
-
 };
 
 module.exports = indexController;

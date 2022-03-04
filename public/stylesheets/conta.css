@@ -1,0 +1,49 @@
+.ema h5 {
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 0px
+}
+
+.ema {
+    display: flex;
+    align-items: center;
+    filter: opacity(.5) blur(.03vw);
+}
+
+.ema div {
+    display: flex;
+    align-items: center;
+}
+
+.ema p {
+    margin: 0;
+    color: black;
+    cursor: context-menu;
+}
+
+.ema .inputCadastro:hover {
+    background-color: #C4CEDB;
+}
+
+#btnBack {
+    margin-top: 67px;
+    background-color: #943417;
+    color: white;
+    width: 200px;
+    height: 49.31px;
+    font-size: 22px;
+    border-radius: 23px;
+    outline: none;
+    border: none;
+}
+
+#btnBack:hover {
+    background-color: #832c12;
+    transition: all 0.15s
+}
+
+#btnBack:active {
+    background-color: #5e1f0c;
+    transition: all 0.15s
+}

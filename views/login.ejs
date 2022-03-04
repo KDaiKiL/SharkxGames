@@ -15,8 +15,26 @@
             <h1>Entre em sua conta</h1>
       
             <div class="form-wrapper">
-              <form action="/login" method="post">
-                <div class="input-block">
+              <form action="/login" method="post" autocomplete="off">
+
+                <% if(typeof(erros) != 'undefined') { %> 
+                  <style>
+                    .form-wrapper form {
+                      height: 430px;
+                    }
+                    .first {
+                      margin-top: 20px;
+                    }
+                  </style>
+                  <div>
+                    <ul>
+                      <p>Erros:</p>
+                      <li>Email ou senha incorretos</li>
+                    </ul>
+                  </div>
+                <% } %> 
+                
+                <div class="input-block first">
                   <label for="login-email">Email</label>
                   <input type="email" name="email" id="login-email" value="" />
                 </div>

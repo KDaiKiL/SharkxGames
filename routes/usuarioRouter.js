@@ -6,9 +6,9 @@ const {check,validationResult,body} = require('express-validator')
 
 router.post('/usuario/criar',logUser, [
    check("nome").isLength({min: 3}) , 
-   check("dataNascimento").isLength({min: 8})   , 
+   check("dataNascimento").isLength({min: 0})   , 
    check("telefone").isLength({min: 3}) , 
-   check("cpf").isLength({min: 13}) ,
+   check("cpf").isLength({min: 11}) ,
    check("endereco").isLength({min: 3})  , 
    check("estado").isLength({min: 0})  , 
    check("numero").isLength({min: 2}) ,  
@@ -17,7 +17,7 @@ router.post('/usuario/criar',logUser, [
    check("complemento").isLength({min: 0})  ,
    check("referencia").isLength({min: 0})   , 
    check("userName").isLength({min: 0})  , 
-   check("senha").isLength({ min: 5 })  ,
+   check("senha").isLength({ min: 3 })  ,
 //    check('confirmarSenha').custom((value, { req }) => {
 //     if (value !== req.check.senha) {
 //       throw new Error('Senha errada');
@@ -27,10 +27,7 @@ router.post('/usuario/criar',logUser, [
    check("email").isEmail() ,
     
 ], indexController.criarUsuario)
-router.post('/usuario/criar', indexController.criarUsuario)
-router.get('/usuario/ver',indexController.pegarUsuario)
-router.get('/usuario/ver/:id',indexController.pegarUsuarioPorId)
-router.put('/usuario/update/:id',indexController.editarUsuario)
-router.delete('/usuario/apagar/:id',indexController.apagarUsuario)
+router.put('/usuarios/:id/edit',indexController.editarUsuario)
+router.post('/usuario/sair',indexController.sairConta)
 
 module.exports = router  

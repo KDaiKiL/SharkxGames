@@ -99,12 +99,14 @@ const emailInput = document.querySelector('input#emailInput')
 
 function emailOuvir(event)  {
 
-   if(event.target.value.length > 3) {
+   if(event.target.value.length < 3) {
 
       emailInput.style.border = "3px solid orange"
       emailInput.style.backgroundColor = "#FFA53D"
       
-
+   } else {
+      emailInput.style.border = "3px solid green"
+      emailInput.style.backgroundColor = "#66FC65"
    }
 }
 
