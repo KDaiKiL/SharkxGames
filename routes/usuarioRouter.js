@@ -5,9 +5,7 @@ const indexController = require('../controllers/indexController')
 const {check,validationResult,body} = require('express-validator')
 
 router.post('/usuario/criar', indexController.criarUsuario)
-router.get('/usuario/ver',indexController.pegarUsuario)
-router.get('/usuario/ver/:id',indexController.pegarUsuarioPorId)
-router.put('/usuario/update/:id',indexController.editarUsuario)
-router.delete('/usuario/apagar/:id',indexController.apagarUsuario)
+router.put('/usuarios/:id/edit',indexController.editarUsuario)
+router.post('/usuario/sair',indexController.sairConta)
 
 module.exports = router  

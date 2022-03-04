@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/cadastro.css">
-
+  <link rel="stylesheet" href="/stylesheets/conta.css">
+  
   <%- include('./partials/linkBootstrap') %>
 
     <title>Conta</title>
@@ -25,7 +26,7 @@
         </div>
 
 
-        <form action="" method="post">
+        <form action="/usuarios/<%= user.id %>/edit?_method=PUT" method="post" autocomplete="off">
           
           <div class="d-flex justify-content-end">
             <div class="inputSeparar"> <label for="">Username: </label> <input type="text" name="username" value="<%= user.username %>"
@@ -50,15 +51,18 @@
                   </div>
                   
               <div class="d-flex justify-content-end">
-                <div class="inputSeparar"> <label for="">E-mail:</label> <input type="email" name="email" value="<%= user.email %>"
-                  class="inputCadastro"></div>
+                <div class="inputSeparar ema"> 
+                  <label for="">Email:</label> 
+                  <div class="inputCadastro">
+                    <p><%= user.email %></p>
+                  </div>
                 </div>
+              </div>
           <div class="d-flex justify-content-end">
             <div class="inputSeparar"> <label for="">Telefone:</label> <input type="text" name="telefone" value="<%= user.telefone %>"
                 class="inputCadastro"></div>
           </div>
 
-          
         </div>
       </div>
     
@@ -145,8 +149,14 @@
                 class="inputComplemento"></div>
           </div>
         
-        <div class="d-flex justify-content-center"> <button id="botaoDeCadastro" type="submit">Cadastro</button> </div>
+        <div class="d-flex justify-content-center"> <button id="botaoDeCadastro" type="submit">Editar</button> </div>
         
+      </form>
+      
+      <form action="/usuario/sair" method="post">
+        <div class="d-flex justify-content-center"> 
+          <button id="btnBack" type="submit">Sair da conta</button> 
+        </div>
       </form>
     </div>
     

@@ -28,12 +28,15 @@ app.set('view engine', 'ejs')
 app.use(cookieMiddleware)
 app.use(Logmiddleware)
 
-
 // rotas
 
 app.use(indexRouter)
 app.use(routerUsuario)
 
+
+app.use((req, res, next) => {
+    res.status(404).render('not-found')
+})
 
 app.listen(3000, () => {
     console.log('Servidor rodando')
