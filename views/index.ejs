@@ -112,25 +112,31 @@
   
         <div class="separarLinhasDeCaixas">
   
-        
+       <% produtos.forEach(produto => { %>  
+         
+      
           <div class="caixa">
             <img src="/images/Teste-01.jpg" alt="">
+
             <div class="precos">
-              <span class="produtoNome"> Placa de Vídeo GeForce RTX 3080 </span>
+              <span class="produtoNome"> <%= produto.nome %>  </span>
               <div>
-                <p class="precoReal">R$ 1000,00</p>
+                <p class="precoReal">R$ <%= produto.preco %></p>
                 <span class="precosComDesconto">R$ 800,00</span>
-                <p class="desconto">20% de desconto</p>
+                <p class="desconto"></p> <%= produto.desconto %>% de desconto</p>
               </div>
+
               <div>
                 <p class="frete">Frete grátis</p>
                 <p class="juros">12x R$ 66.6 sem juros</p>
               </div>
             </div>
+            
           </div>
-             
+
+    <%  });  %>            
         
-          <div class="caixa">
+          <!-- <div class="caixa">
             <img src="/images/Teste-01.jpg" alt="">
             <div class="precos">
               <span class="produtoNome"> Placa de Vídeo GeForce RTX 3080 </span>
@@ -176,7 +182,7 @@
                 <p class="juros">12x R$ 66.6 sem juros</p>
               </div>
             </div>
-          </div>
+          </div> -->
 
         </div>
 

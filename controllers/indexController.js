@@ -5,8 +5,11 @@ const bcrypt = require('bcrypt')
 const { Usuario, Produto, Cartao } = require('../models')
 
 const indexController = {
-  index: (req, res) => {
-    res.render('index')
+  index: async (req, res) => {
+
+    const produtos = await Produto.findAll()
+
+    res.render('index', {produtos} ) 
   },
   login: (req, res) => {
     res.render('login')
@@ -95,14 +98,15 @@ const indexController = {
 
   ProdutoCriar: async (req, res) => {
 
-    const { nome, preco, desconto, categoria } = req.body
+    const { nome, preco, desconto, categoria, descricao } = req.body
 
     const produto = await Produto.create({
       id: uuid(),
       nome,
       preco,
       desconto,
-      categoria
+      categoria,
+      descricao
     })
 
     res.json(produto)
@@ -159,6 +163,13 @@ const indexController = {
     res.json(cartao)
 
   },
+
+  error: (req,res) => {
+    
+    
+    res.render('error')
+  },
+
   cadastrarCartao: async (req, res) => {
 
     const { nome, bandeira, numero, tipo, cvv } = req.body
@@ -221,7 +232,6 @@ const indexController = {
     const password = bcrypt.hashSync(senha, 10)
 
     if(listaDeError.isEmpty()) {
-
       const newUser = await Usuario.create({
         username, nome, sobrenome, data_nascimento, email, senha: password, telefone, cpf, cep, endereco, estado, cidade, bairro, referencia, numero, complemento
       })
@@ -231,6 +241,8 @@ const indexController = {
    } else {
      res.json(listaDeError)
    }
+
+   
 
     
   },

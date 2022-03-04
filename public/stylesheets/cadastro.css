@@ -103,6 +103,12 @@ label {
   border: 1px solid rgb(144, 139, 171)
 }
 
+.UsernameDivP{
+   display: flex;
+   justify-content: center;
+
+}
+
 select option {
   color: black;
   background: #91aac9;
