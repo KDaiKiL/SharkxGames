@@ -87,8 +87,14 @@ const indexController = {
     const { id } = req.params
 
     const produtoId = await Produto.findByPk(id)
+    
 
-    res.json(produtoId)
+    if(!produtoId) {
+      return res.render('telasError/idError', { id } )
+    }
+    
+
+   return res.render('item', { produtoId } )
   },
 
   ProdutoCriar: async (req, res) => {
