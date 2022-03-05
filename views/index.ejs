@@ -11,7 +11,7 @@
   <%- include('./partials/linkBootstrap') %> 
 </head>
 
-<body>
+<body> 
 
 <%- include('./partials/header.ejs') %>
 
@@ -121,9 +121,15 @@
             <div class="precos">
               <span class="produtoNome"> <%= produto.nome %>  </span>
               <div>
-                <p class="precoReal">R$ <%= produto.preco %></p>
-                <span class="precosComDesconto">R$ 800,00</span>
-                <p class="desconto"></p> <%= produto.desconto %>% de desconto</p>
+                <% if(produto.desconto == 0) { %>
+                  <p class="semReal"></p>
+                  <span class="precosReal">R$ <%= parseFloat(produto.preco).toFixed(2) %></span>
+                  <p class="semDesconto"></p>
+                <% } else { %>  
+                  <p class="precoReal">R$ <%= produto.preco %></p>
+                  <span class="precosComDesconto">R$ <%= parseFloat(produto.preco - produto.desconto*produto.preco/100).toFixed(2) %></span>
+                  <p class="desconto"></p> <%= produto.desconto %>% de desconto</p>
+                <% } %>   
               </div>
 
               <div>

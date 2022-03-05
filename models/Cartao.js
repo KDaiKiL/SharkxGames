@@ -3,8 +3,9 @@ module.exports = (sequelize,DataTypes) => {
 
     const Cartao = sequelize.define('Cartao',{
         id: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            allowNull:false,
             primaryKey:true
         },
 
@@ -28,6 +29,11 @@ module.exports = (sequelize,DataTypes) => {
             allowNull: false
         },
 
+        validade: { 
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+
         cvv: {
             type: DataTypes.INTEGER,
             allowNull: false
@@ -36,7 +42,7 @@ module.exports = (sequelize,DataTypes) => {
 
     },{
         timestamps: false,
-        tableName: 'Cartao'
+        tableName: 'cartao'
     })
 
     return Cartao

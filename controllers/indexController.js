@@ -2,7 +2,7 @@ const fs = require('fs');
 const { v4: uuid } = require('uuid');
 const {check,validationResult,body} = require('express-validator')
 const bcrypt = require('bcrypt')
-const { Usuario, Produto, Cartao } = require('../models')
+const { Usuario, Produto, Cartao, Imagem } = require('../models')
 
 const indexController = {
   index: async (req, res) => {
@@ -68,13 +68,18 @@ const indexController = {
   pageProduto: (req, res) => {
     res.render('cadastroProduto')
   },
-  novoProduto: (req, res) => {
-   
-    let img = '/images/upload/' + req.file.originalname
-    let { nome, valor, descricao } = req.body
-
-  
-    res.redirect("/home")
+  novoProduto: async (req, res) => {
+    const { id } = req.session.usuario
+    const { nome, preco, desconto, categoria, descricao } = req.body
+    const produto = await Produto.create({
+      nome,
+      usuario_id: id,
+      preco,
+      desconto,
+      categoria,
+      descricao
+    })
+    res.json(produto)
   },
   editarProduto: (req, res) => {
     return res.render('atualizarProduto')
@@ -95,23 +100,6 @@ const indexController = {
 
     res.json(produtoId)
   },
-
-  ProdutoCriar: async (req, res) => {
-
-    const { nome, preco, desconto, categoria, descricao } = req.body
-
-    const produto = await Produto.create({
-      id: uuid(),
-      nome,
-      preco,
-      desconto,
-      categoria,
-      descricao
-    })
-
-    res.json(produto)
-  },
-
   AtualizarProduto: async (req, res) => {
 
     const { id } = req.params
@@ -232,7 +220,7 @@ const indexController = {
     const password = bcrypt.hashSync(senha, 10)
 
     if(listaDeError.isEmpty()) {
-      const newUser = await Usuario.create({
+        await Usuario.create({
         username, nome, sobrenome, data_nascimento, email, senha: password, telefone, cpf, cep, endereco, estado, cidade, bairro, referencia, numero, complemento
       })
 

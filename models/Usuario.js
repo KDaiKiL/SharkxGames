@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Usuario = sequelize.define('Usuario',{
     
     id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       autoIncrement: true,
       allowNull: false,
       primaryKey: true
@@ -120,6 +120,18 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false,
      tableName: 'usuario'
   })
+
+  Usuario.associate = (models) => {
+
+    Usuario.hasMany(models.Produto, {
+
+      as: "produto",
+
+      foreignKey: "usuario_id"
+
+    })
+
+  }
 
   return Usuario
 }

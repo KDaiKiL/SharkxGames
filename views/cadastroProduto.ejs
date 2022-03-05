@@ -15,16 +15,25 @@
 
     <main>
         <div class="cadProduto">
-            <form action="/cadastro/produto" method="post" enctype="multipart/form-data">
+            <form action="/cadastro/produto" method="post">
+                <div>
+                    <label for="categoria">Marca do produto (opcional):</label>
+                        <input type="text" id="categoria" name="categoria">
+                </div>
                 <div>
                     <label for="nome">Nome do produto:</label>
                         <input type="text" id="nome" name="nome">
                 </div>
                 <div>
-                    <label for="valor">Valor:</label>
-                        <input type="text" id="valor" name="valor">
+                    <label for="preco">Valor:</label>
+                        <input type="text" id="preco" name="preco">
                 </div>
-                <input type="file" name="img" accept=".png, .jpg">
+                <div>
+
+                    <label for="desconto">desconto:</label>
+                        <input type="text" id="desconto" name="desconto">
+                </div>
+                
                 <div>
                     <label for="descricao">Descrição:</label>
                         <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>

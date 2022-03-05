@@ -36,9 +36,9 @@ CREATE TABLE produto (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     usuario_id INT(10) UNSIGNED NOT NULL,
     nome VARCHAR(100) NOT NULL,
-    categoria VARCHAR(50) NOT NULL,
-    preco VARCHAR(10) NOT NULL,
-    desconto VARCHAR(10) NOT NULL,
+    categoria VARCHAR(50),
+    preco DECIMAL(10) NOT NULL,
+    desconto DECIMAL(10),
     descricao VARCHAR(1000),
     PRIMARY KEY (id),
     FOREIGN KEY user_fk (usuario_id) REFERENCES usuario(id)
