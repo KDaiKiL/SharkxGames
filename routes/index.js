@@ -45,7 +45,7 @@ router.post('/login', indexController.loginUser)
 //Produto
 
 router.get('/produto/ver',indexController.produtoVer)
-router.get('/produto/ver/:id',indexController.produtoVerId)
+router.get('/produtos/:id',indexController.produtoVerId)
 router.post('/cadastro/produto', indexController.novoProduto)
 router.put('/produto/update/:id',indexController.AtualizarProduto)
 router.delete('/produto/delete/:id',indexController.DeletarProduto)

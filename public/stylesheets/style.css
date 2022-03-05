@@ -45,12 +45,9 @@ h1 {
 }
 
 .caixa {
-  display: flex;
-  flex-direction: column;
   box-shadow: 0px 0px 6px rgb(0 0 0 / 25%); 
   margin: 17px 15px;
   border-radius: 6px;
-  height: 416px
 }
 
 .caixa:hover {
@@ -134,6 +131,7 @@ h1 {
   font-size: 12px;
   line-height: 14px;
   color: #DAFF71;
+  width: 156px;
 }
 
 
