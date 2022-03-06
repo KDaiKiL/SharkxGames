@@ -70,6 +70,7 @@ const indexController = {
   },
   novoProduto: async (req, res) => {
     const { id } = req.session.usuario
+    let img = '/images/upload/' + req.file.originalname
     const { nome, preco, desconto, categoria, descricao } = req.body
     const produto = await Produto.create({
       nome,
@@ -77,7 +78,8 @@ const indexController = {
       preco,
       desconto,
       categoria,
-      descricao
+      descricao,
+      imgPath: img
     })
     res.json(produto)
   },

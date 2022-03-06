@@ -118,8 +118,13 @@
        <a href="/produtos/<%= produto.id %> ">
         <div class="caixa" type="submit">
           
-          <img src="/images/Teste-01.jpg" alt="">
-        
+
+          <% if(produto.imgPath != "") { %> 
+            <img src="<%= produto.imgPath %>" alt="">
+          <% } else {%> 
+              <img src="/images/Teste-01.jpg" alt="">
+            <% } %> 
+            
           <div class="precos" >
             <span class="produtoNome"> <%= produto.nome %>  </span>
             <div>

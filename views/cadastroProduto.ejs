@@ -15,7 +15,7 @@
 
     <main>
         <div class="cadProduto">
-            <form action="/cadastro/produto" method="post">
+            <form action="/cadastro/produto" method="post" enctype="multipart/form-data">
                 <div>
                     <label for="categoria">Marca do produto (opcional):</label>
                         <input type="text" id="categoria" name="categoria">
@@ -38,6 +38,10 @@
                     <label for="descricao">Descrição:</label>
                         <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
                 </div>
+
+                <span id="total">Adicione uma imagem</span>
+                <input type="file" id="files" name="img" accept=".jpg, .jpeg, .png"/>
+
                 <button type="submit">Enviar</button>
             </form>
         </div>

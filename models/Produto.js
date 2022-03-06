@@ -36,6 +36,10 @@ module.exports = (sequelize,DataTypes) => {
             type: DataTypes.TEXT
         },
 
+        imgPath: { 
+            type: DataTypes.STRING
+        }
+
     },{
         timestamps: false,
         tableName: 'produto'
@@ -43,13 +47,11 @@ module.exports = (sequelize,DataTypes) => {
 
     Produto.associate = (models) => {
         Produto.belongsTo(models.Usuario, {
-
             as: "usuario",
-
             foreignKey: "usuario_id"
-
         })
     }
+
 
     return Produto
 }

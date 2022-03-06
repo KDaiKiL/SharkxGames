@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     telefone: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.NUMBER,
       allowNull: false
     },
 
