@@ -4,30 +4,24 @@
   padding: 0;
 }
 
-html,
 main {
-  height: 91vh;
-}
-
-main {
-  background-color: #4e495e;
+  background-color: #302c3a;
   font-family: Roboto, Arial, sans-serif;
+  height: 91vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .form-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: scale(1.4);
 }
 
 .form-section h1 {
   font-size: 32px;
   letter-spacing: 1px;
-  margin: 20px 0;
   color: white;
 }
 
@@ -41,6 +35,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  filter: drop-shadow(0px 0px 4px #101010)
 }
 
 .form-section form .input-block {
@@ -54,6 +49,7 @@ main {
 
 .form-section form .input-block input {
   width: 100%;
+  height: 34px;
   display: block;
   margin-top: 8px;
   padding: 7px;
@@ -69,14 +65,21 @@ main {
   transition: all 0.15s
 }
 
+.form-section form .input-block input:hover {
+  border: 1.3px solid #9480b1;
+  transition: all 0.15s
+}
 
 .input-coockie {
-    margin-left: 5px
+  margin-left: 5px;
+  display: flex;
+  align-items: center
 }
 
 .input-coockie label {
-    font-size: 13px;
-    color: #4c447d
+  font-size: 13px;
+  color: #4c447d;
+  margin-left: 3px;
 }
 
 .form-section form .btn-login {
@@ -103,26 +106,26 @@ main {
 }
 
 .form-wrapper nav li {
-    list-style: none;
+  list-style: none;
 }
 
 .form-wrapper nav a {
-    font-size: 12px;
+  font-size: 12px;
     color: rgb(111, 24, 199);
-}
-
+  }
+  
 .form-wrapper nav a:hover {
     color: rgb(85, 21, 150);
-}
-
+  }
+  
 .form-wrapper nav a:active {
     color: rgb(53, 9, 97);
     transition: all 0.15s
-}
-
+  }
+  
 .form-wrapper nav ul {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .form-wrapper div ul {
@@ -139,4 +142,46 @@ main {
 
 .form-wrapper div ul li{
   color: rgb(248, 60, 60);
+}
+
+#cock {
+  position: relative;
+  cursor: pointer;
+}
+
+#cock:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #7e628afd;
+  border: 1px solid #5c4168fd;
+}
+
+#cock:checked:after {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 7px;
+  border: solid white;
+  border-width: 0 2.3px 2.3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0px;
+  left: 4px;
+}
+
+@media (min-width: 1319px) {
+  .form-section {
+    transform: scale(1.3);
+  }
+}
+
+@media (min-width: 1970px) {
+  .form-section {
+    transform: scale(1.5);
+  }
 }
