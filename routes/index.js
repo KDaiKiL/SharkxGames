@@ -19,6 +19,7 @@ const upload = multer({ storage: storage })
 
 
 // GET
+router.get('/contas/:id', indexController.contaId)
 router.get('/home', indexController.index)
 router.get('/pagamento', auth, indexController.pagamento)
 router.get('/editar', auth, indexController.editarProduto)

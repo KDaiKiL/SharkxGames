@@ -130,19 +130,19 @@
             <div>
               <% if(produto.desconto == 0) { %>
                 <p class="semReal"></p>
-                <span class="precosReal">R$ <%= parseFloat(produto.preco).toFixed(2) %></span>
+                <span class="precosReal"><%= parseFloat(produto.preco).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %></span>
                 <p class="semDesconto"></p>
                 <div>
-                  <p class="frete">6x de R$ <%= parseFloat(produto.preco/6).toFixed(2) %> </p>
-                  <p class="juros">Ou 12x de R$ <%= parseFloat(produto.preco/12).toFixed(2) %> sem juros</p>
+                  <p class="frete">6x de R$ <%= parseFloat(produto.preco/6).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </p>
+                  <p class="juros">Ou 12x de R$ <%= parseFloat(produto.preco/12).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> sem juros</p>
                 </div>
               <% } else { %>  
-                <p class="precoReal">R$ <%= produto.preco %></p>
-                <span class="precosComDesconto">R$ <%= parseFloat(produto.preco - produto.desconto*produto.preco/100).toFixed(2) %></span>
+                <p class="precoReal"><%=  parseFloat(produto.preco).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %></p>
+                <span class="precosComDesconto"><%= parseFloat(produto.preco - produto.desconto*produto.preco/100).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %></span>
                 <p class="desconto"></p> <%= produto.desconto %>% de desconto</p>
                 <div>
-                  <p class="frete">6x de R$ <%= parseFloat((produto.preco - produto.desconto*produto.preco/100)/6).toFixed(2) %> </p>
-                  <p class="juros">Ou 12x de R$ <%= parseFloat((produto.preco - produto.desconto*produto.preco/100)/12).toFixed(2) %> sem juros</p>
+                  <p class="frete">6x de <%= parseFloat((produto.preco - produto.desconto*produto.preco/100)/6).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </p>
+                  <p class="juros">Ou 12x de <%= parseFloat((produto.preco - produto.desconto*produto.preco/100)/12).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> sem juros</p>
                 </div>
               <% } %>   
             </div>
@@ -152,55 +152,7 @@
       </a>
 
 
-    <%  });  %>            
-        
-          <!-- <div class="caixa">
-            <img src="/images/Teste-01.jpg" alt="">
-            <div class="precos">
-              <span class="produtoNome"> Placa de Vídeo GeForce RTX 3080 </span>
-              <div>
-                <p class="precoReal">R$ 1000,00</p>
-                <span class="precosComDesconto">R$ 800,00</span>
-                <p class="desconto">20% de desconto</p>
-              </div>
-              <div>
-                <p class="frete">Frete grátis</p>
-                <p class="juros">12x R$ 66.6 sem juros</p>
-              </div>
-            </div> 
-          </div>
-        
-          <div class="caixa">
-            <img src="/images/Teste-01.jpg" alt="">
-            <div class="precos">
-              <span class="produtoNome"> Placa de Vídeo GeForce RTX 3080 </span>
-              <div>
-                <p class="precoReal">R$ 1000,00</p>
-                <span class="precosComDesconto">R$ 800,00</span>
-                <p class="desconto">20% de desconto</p>
-              </div>
-              <div>
-                <p class="frete">Frete grátis</p>
-                <p class="juros">12x R$ 66.6 sem juros</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="caixa">
-            <img src="/images/Teste-01.jpg" alt="">
-            <div class="precos">
-              <span class="produtoNome"> Placa de Vídeo GeForce RTX 3080 </span>
-              <div>
-                <p class="precoReal">R$ 1000,00</p>
-                <span class="precosComDesconto">R$ 800,00</span>
-                <p class="desconto">20% de desconto</p>
-              </div>
-              <div>
-                <p class="frete">Frete grátis</p>
-                <p class="juros">12x R$ 66.6 sem juros</p>
-              </div>
-            </div>
-          </div> -->
+    <%  });  %>
 
         </div>
 
@@ -210,7 +162,7 @@
 
 <%- include('./partials/footer') %>    
 
-  <script src="js/index.js"></script>
+  <script src="/js/index.js"></script>
   
 </body>
 
