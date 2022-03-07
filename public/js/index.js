@@ -6,12 +6,10 @@ for (let caixa of caixas) {
     this.style.transform = "scale(1.02)";
     this.style.cursor = "pointer";
     this.children[1].children[0].style.color = "#e0e2f4";
-    this.children[1].children[0].style.fontWeight = "400";
   });
 
   caixa.addEventListener("mouseout", function () {
     this.style.transform = "";
     this.children[1].children[0].style.color = "";
-    this.children[1].children[0].style.fontWeight = "";
   });
 }
