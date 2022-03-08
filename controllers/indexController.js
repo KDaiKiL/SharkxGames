@@ -245,8 +245,11 @@ const indexController = {
       res.redirect("/login")
 
    } else {
-     res.json(listaDeError)
-   }
+ 
+return res.render('cadastro')
+
+     
+  }
 
    
 
@@ -298,3 +301,57 @@ const indexController = {
 };
 
 module.exports = indexController;
+
+//   "errors": [
+
+//     {
+//       "value": "q",
+//       "msg": "Invalid value",
+//       "param": "nome",
+//       "location": "body"
+//     },
+
+//     {
+//       "value": "",
+//       "msg": "Invalid value",
+//       "param": "telefone",
+//       "location": "body"
+//     },
+
+//     {
+//       "value": "",
+//       "msg": "Invalid value",
+//       "param": "cpf",
+//       "location": "body"
+//     },
+
+//     {
+//       "value": "",
+//       "msg": "Invalid value",
+//       "param": "endereco",
+//       "location": "body"
+//     },
+
+//     {
+//       "value": "",
+//       "msg": "Invalid value",
+//       "param": "numero",
+//       "location": "body"
+//     },
+
+//     {
+//       "value": "",
+//       "msg": "Invalid value",
+//       "param": "senha",
+//       "location": "body"
+//     },
+
+//     {
+//       "value": "",
+//       "msg": "Invalid value",
+//       "param": "email",
+//       "location": "body"
+//     }
+
+//   ]
+// }
