@@ -11,7 +11,7 @@
   <%- include('./partials/linkBootstrap') %> 
 </head>
 
-<body>
+<body> 
 
 <%- include('./partials/header.ejs') %>
 
@@ -115,83 +115,44 @@
        <% produtos.forEach(produto => { %>  
          
       
-       
-          <div class="caixa" type="submit">
-            
-            <img src="/images/Teste-01.jpg" alt="">
+       <a href="/produtos/<%= produto.id %> ">
+        <div class="caixa" type="submit">
           
-            <div class="precos" >
-              <span class="produtoNome"> <%= produto.nome %>  </span>
-              <div>
-                <p class="precoReal"><%= produto.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %></p>
-                <span class="precosComDesconto">R$ 800,00</span>
+
+          <% if(produto.imgPath != "") { %> 
+            <img src="<%= produto.imgPath %>" alt="">
+          <% } else {%> 
+              <img src="/images/Teste-01.jpg" alt="">
+            <% } %> 
+            
+          <div class="precos" >
+            <span class="produtoNome"> <%= produto.nome %>  </span>
+            <div>
+              <% if(produto.desconto == 0) { %>
+                <p class="semReal"></p>
+                <span class="precosReal"><%= parseFloat(produto.preco).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %></span>
+                <p class="semDesconto"></p>
+                <div>
+                  <p class="frete">6x de R$ <%= parseFloat(produto.preco/6).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </p>
+                  <p class="juros">Ou 12x de R$ <%= parseFloat(produto.preco/12).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> sem juros</p>
+                </div>
+              <% } else { %>  
+                <p class="precoReal"><%=  parseFloat(produto.preco).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %></p>
+                <span class="precosComDesconto"><%= parseFloat(produto.preco - produto.desconto*produto.preco/100).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %></span>
                 <p class="desconto"></p> <%= produto.desconto %>% de desconto</p>
-              </div>
-
-              <div>
-                <p class="frete">Frete grátis</p>
-                <p class="juros">12x R$ 66.6 sem juros</p>
-              </div>
-
-              <form action="/produto/<%=produto.id%>?_method=GET" method="post">
-
-              <button>ver mais</button>
-
-            </form>
-
+                <div>
+                  <p class="frete">6x de <%= parseFloat((produto.preco - produto.desconto*produto.preco/100)/6).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </p>
+                  <p class="juros">Ou 12x de <%= parseFloat((produto.preco - produto.desconto*produto.preco/100)/12).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> sem juros</p>
+                </div>
+              <% } %>   
             </div>
-           </div>
-
-
-    <%  });  %>            
-        
-          <!-- <div class="caixa">
-            <img src="/images/Teste-01.jpg" alt="">
-            <div class="precos">
-              <span class="produtoNome"> Placa de Vídeo GeForce RTX 3080 </span>
-              <div>
-                <p class="precoReal">R$ 1000,00</p>
-                <span class="precosComDesconto">R$ 800,00</span>
-                <p class="desconto">20% de desconto</p>
-              </div>
-              <div>
-                <p class="frete">Frete grátis</p>
-                <p class="juros">12x R$ 66.6 sem juros</p>
-              </div>
-            </div> 
+            
           </div>
-        
-          <div class="caixa">
-            <img src="/images/Teste-01.jpg" alt="">
-            <div class="precos">
-              <span class="produtoNome"> Placa de Vídeo GeForce RTX 3080 </span>
-              <div>
-                <p class="precoReal">R$ 1000,00</p>
-                <span class="precosComDesconto">R$ 800,00</span>
-                <p class="desconto">20% de desconto</p>
-              </div>
-              <div>
-                <p class="frete">Frete grátis</p>
-                <p class="juros">12x R$ 66.6 sem juros</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="caixa">
-            <img src="/images/Teste-01.jpg" alt="">
-            <div class="precos">
-              <span class="produtoNome"> Placa de Vídeo GeForce RTX 3080 </span>
-              <div>
-                <p class="precoReal">R$ 1000,00</p>
-                <span class="precosComDesconto">R$ 800,00</span>
-                <p class="desconto">20% de desconto</p>
-              </div>
-              <div>
-                <p class="frete">Frete grátis</p>
-                <p class="juros">12x R$ 66.6 sem juros</p>
-              </div>
-            </div>
-          </div> -->
+         </div>
+      </a>
+
+
+    <%  });  %>
 
         </div>
 
@@ -201,7 +162,7 @@
 
 <%- include('./partials/footer') %>    
 
-  <script src="js/index.js"></script>
+  <script src="/js/index.js"></script>
   
 </body>
 

@@ -10,7 +10,6 @@ body {
   margin: 0pc;
 }
 
-
 main {
   background-color: #6C6C6C;
 }
@@ -23,24 +22,34 @@ main {
 }
  
 .precoReal{
-color: #181818;
-font-size: 36px;
-}
-
-.dinheiroBrasil {
-font-size: 36px;
+  color: #E15252;
+  text-decoration: line-through;
+  font-size: 30px;
+  margin-bottom: 0px;
 }
 
 .precosComDesconto {
-font-size: 36px;
+  color: #52DD58;
+  font-size: 36px;
 }
 
 .adicionarAoCarrinho{
-background-color: #353535;
+background-color: #4c5266;
 width: 700px;
 height: 122.59px;
 border-radius: 12px;
-border: black 1px solid;
+border: #1c1b1b 1px solid;
+}
+
+.adicionarAoCarrinho:hover {
+  background: #454c63;
+  transform: scale(1.01);
+  transition: all 0.15s
+}
+
+.adicionarAoCarrinho:active {
+  background: #40475c;
+  transition: all 0.15s
 }
 
 .imagemCarrinho{
@@ -59,11 +68,24 @@ font-size: 24px;
 }
 
 .botaoCarrinhoSuperior{
-width: 200px;
-height: 64px;
-background-color: #676767;
-border-radius: 15px;
-border: black 1px solid;
+  width: 200px;
+  height: 64px;
+  background-color: #466655;
+  border-radius: 15px;
+  border: #0e2c0b 1px solid;
+  padding: 0 28px
+}
+
+.botaoCarrinhoSuperior:hover {
+  background-color: #3e5f4c;
+  border: #081f06 1px solid;
+  transform: scale(1.02);
+  transition: all 0.15s
+}
+
+.botaoCarrinhoSuperior:active {
+  background-color: #385343;
+  transition: all 0.15s
 }
 
 li {
@@ -93,7 +115,7 @@ background-color: transparent;
 .comentarios {
 width: 95%;
 height: 177px;
-margin: 20px;
+margin: 20px 0;
 background-color: #72757B;
 }
 
@@ -107,4 +129,69 @@ background-color: transparent;
 border: none ;
 border-bottom: #68D5F8 1px solid;
 outline: none;
+margin-left: 20px
+}
+
+.btnVenda {
+  align-items: end;
+  justify-content: space-between;
+  margin: 30px 30px 0 60px;
+}
+
+.ppreco {
+  margin-top: 25px
+}
+
+.btnCarrinho {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnVenda h5 {
+  color: #8898ad;
+  margin: 0;
+}
+
+.ppreco h2 {
+  padding: 0 55px;
+  color: #d68e8e;
+}
+
+.informacacoesDoProduto {
+  padding: 0 40px; 
+}
+
+#especificacoes {
+  margin-bottom: 20px;
+  padding: 0 40px;
+}
+
+.espec {
+  margin: 30px 0;
+}
+
+.addUp {
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.conteudo {
+  align-items: end;
+  justify-content: space-between;
+  margin: 40px;
+}
+
+.coment {
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.wpp {
+  display: flex;
+}
+
+.wpp img {
+  width: 25px;
+  margin-left: 10px;
 }

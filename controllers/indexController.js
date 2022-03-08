@@ -2,10 +2,10 @@ const fs = require('fs');
 const { v4: uuid } = require('uuid');
 const {check,validationResult,body} = require('express-validator')
 const bcrypt = require('bcrypt')
-const { Usuario, Produto, Cartao } = require('../models')
+const { Usuario, Produto, Cartao, Imagem } = require('../models')
 
 const indexController = {
-  index: async (req, res) => {
+  index: async(req, res) => {
 
     const produtos = await Produto.findAll()
 
@@ -14,14 +14,14 @@ const indexController = {
   login: (req, res) => {
     res.render('login')
   },
-  loginUser: async (req, res) => {
+  loginUser: async(req, res) => {
     const { email, senha, cock } = req.body
     const usuario = await Usuario.findOne({where: { email }})
     const erros = []
 
     if(cock != undefined && usuario != null) {
       if(bcrypt.compareSync(senha, usuario.senha)) {
-        res.cookie('log', usuario.email, {maxAge: 600000})
+        res.cookie('log', usuario.email, {maxAge: 3600})
       }
     }
 
@@ -45,10 +45,20 @@ const indexController = {
   cadastro: (req, res) => {
     return res.render('cadastro')
   },
-  conta: async (req, res) => {
+  conta: async(req, res) => {
     const { id } = req.session.usuario
     const user = await Usuario.findByPk(id)
     res.render('conta', { user })
+  },
+  contaId: async(req, res) => {
+    const { id } = req.params
+    const acont = await Usuario.findByPk(id)
+
+    if(acont == null) {
+      res.render('not-found')
+    } else {
+      res.json(acont)
+    }
   },
   pagamento: (req, res) => {
     return res.render('formaDePagamento')
@@ -68,13 +78,20 @@ const indexController = {
   pageProduto: (req, res) => {
     res.render('cadastroProduto')
   },
-  novoProduto: (req, res) => {
-   
+  novoProduto: async(req, res) => {
+    const { id } = req.session.usuario
     let img = '/images/upload/' + req.file.originalname
-    let { nome, valor, descricao } = req.body
-
-  
-    res.redirect("/home")
+    const { nome, preco, desconto, categoria, descricao } = req.body
+    const produto = await Produto.create({
+      nome,
+      usuario_id: id,
+      preco,
+      desconto,
+      categoria,
+      descricao,
+      imgPath: img
+    })
+    res.redirect('/home')
   },
   editarProduto: (req, res) => {
     return res.render('atualizarProduto')
@@ -82,16 +99,20 @@ const indexController = {
   contato: (req, res) => {
     res.render('contato')
   },
-  produtoVer: async (req, res) => {
+  produtoVer: async(req, res) => {
     const pv = await Produto.findAll()
 
     res.json(pv)
   },
 
-  produtoVerId: async (req, res) => {
+  produtoVerId: async(req, res) => {
     const { id } = req.params
 
-    const produtoId = await Produto.findByPk(id)
+    const produtoId = await Produto.findByPk(id, {
+      include: {
+        association: 'usuario'
+      }
+    })
     
 
     if(!produtoId) {
@@ -101,24 +122,7 @@ const indexController = {
 
    return res.render('item', { produtoId } )
   },
-
-  ProdutoCriar: async (req, res) => {
-
-    const { nome, preco, desconto, categoria, descricao } = req.body
-
-    const produto = await Produto.create({
-      id: uuid(),
-      nome,
-      preco,
-      desconto,
-      categoria,
-      descricao
-    })
-
-    res.json(produto)
-  },
-
-  AtualizarProduto: async (req, res) => {
+  AtualizarProduto: async(req, res) => {
 
     const { id } = req.params
 
@@ -136,7 +140,7 @@ const indexController = {
 
   },
 
-  DeletarProduto: async (req, res) => {
+  DeletarProduto: async(req, res) => {
 
     const { id } = req.params
 
@@ -152,7 +156,7 @@ const indexController = {
 
   },
 
-  PegarCartao: async (req, res) => {
+  PegarCartao: async(req, res) => {
 
     const cartao = await Cartao.findAll()
 
@@ -160,7 +164,7 @@ const indexController = {
 
   },
 
-  PegarCartaoID: async (req, res) => {
+  PegarCartaoID: async(req, res) => {
 
     const { id } = req.params
 
@@ -171,12 +175,10 @@ const indexController = {
   },
 
   error: (req,res) => {
-    
-    
     res.render('error')
   },
 
-  cadastrarCartao: async (req, res) => {
+  cadastrarCartao: async(req, res) => {
 
     const { nome, bandeira, numero, tipo, cvv } = req.body
 
@@ -194,7 +196,7 @@ const indexController = {
     res.json(cartaoCadastrado)
   },
 
-  updateCartao: async (req, res) => {
+  updateCartao: async(req, res) => {
 
     const { id } = req.params
 
@@ -214,7 +216,7 @@ const indexController = {
       return res.status(204).json({ mensagem: 'Sua alteração já foi realizada' })
     }
   },
-  destruirCartao: async (req, res) => {
+  destruirCartao: async(req, res) => {
     const { id } = req.params
 
     const destruir = await Cartao.destroy({
@@ -229,7 +231,7 @@ const indexController = {
 
   },
 
-  criarUsuario: async (req, res) => {
+  criarUsuario: async(req, res) => {
 
     const { username, nome, sobrenome, data_nascimento, email, senha, telefone, cpf, cep, endereco, estado, cidade, bairro, referencia, numero, complemento } = req.body
 
@@ -238,7 +240,7 @@ const indexController = {
     const password = bcrypt.hashSync(senha, 10)
 
     if(listaDeError.isEmpty()) {
-      const newUser = await Usuario.create({
+        await Usuario.create({
         username, nome, sobrenome, data_nascimento, email, senha: password, telefone, cpf, cep, endereco, estado, cidade, bairro, referencia, numero, complemento
       })
 
@@ -260,7 +262,7 @@ return res.render('cadastro')
     res.render('termos')
   },
 
-  editarUsuario: async (req,res) => {
+  editarUsuario: async(req,res) => {
     const { id } = req.params
     const alterado = []
     

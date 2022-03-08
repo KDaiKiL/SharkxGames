@@ -19,6 +19,7 @@ const upload = multer({ storage: storage })
 
 
 // GET
+router.get('/contas/:id', indexController.contaId)
 router.get('/home', indexController.index)
 router.get('/pagamento', auth, indexController.pagamento)
 router.get('/editar', auth, indexController.editarProduto)
@@ -28,7 +29,7 @@ router.get('/login', login, indexController.login)
 router.get('/conta', auth, indexController.conta)
 router.get('/item', indexController.item)
 router.get('/opcoes-entrega', indexController.OpcoesEntrega)
-router.get('/cadastro/produto', indexController.pageProduto)
+router.get('/cadastro/produto', auth, indexController.pageProduto)
 router.get('/produto/venda', indexController.adcProduto)
 router.get('/contato', indexController.contato)
 router.get('/contato/Termos-e-condicoes-gerais-de-uso_0000', indexController.termos)
@@ -37,7 +38,6 @@ router.get('/contato/Termos-e-condicoes-gerais-de-uso_0000', indexController.ter
 
 //POST
 
-router.post('/cadastro/produto', upload.single('img'), indexController.novoProduto)
 router.post('/login', indexController.loginUser)
 
 
@@ -46,8 +46,8 @@ router.post('/login', indexController.loginUser)
 //Produto
 
 router.get('/produto/ver',indexController.produtoVer)
-router.get('/produto/:id',indexController.produtoVerId)
-router.post('/produto/criar',indexController.ProdutoCriar)
+router.get('/produtos/:id',indexController.produtoVerId)
+router.post('/cadastro/produto', upload.single('img'),indexController.novoProduto)
 router.put('/produto/update/:id',indexController.AtualizarProduto)
 router.delete('/produto/delete/:id',indexController.DeletarProduto)
 

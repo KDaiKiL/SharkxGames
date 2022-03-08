@@ -10,25 +10,13 @@ window.addEventListener('load', () => {
 
     if (window.location.href != "http://localhost:3000/home") {
       window.location.replace("http://localhost:3000/home")
-      console.log("opa amigo")
-      
-        console.log("to aqui esperando!!!")
-        window.scroll({
-          top: 800,
-          behavior: "smooth",
-        })
-      
-
     }
 
     if (window.location.href == "http://localhost:3000/home") {
-      setTimeout(() => {
-        console.log("to aqui esperando!!!")
-        window.scroll({
-          top: 800,
-          behavior: "smooth",
-        })
-      }, 2000);
+      window.scroll({
+        top: 800,
+        behavior: "smooth",
+      })
     }
   });
 

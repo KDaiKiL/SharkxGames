@@ -3,9 +3,15 @@ module.exports = (sequelize,DataTypes) => {
 
     const Produto = sequelize.define('Produto',{
         id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull:false,
             primaryKey:true
+        },
+
+        usuario_id: {
+            type: DataTypes.INTEGER,
+            allowNull:false,
         },
 
         nome: { 
@@ -14,29 +20,38 @@ module.exports = (sequelize,DataTypes) => {
         },
         
         preco: { 
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL,
             allowNull: false
         },
 
         desconto: { 
-            type: DataTypes.INTEGER,
-            allowNull: false
+            type: DataTypes.DECIMAL
         },
 
         categoria: { 
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.STRING
         },
         
         descricao: { 
-            type: DataTypes.TEXT,
-            allowNull: false
+            type: DataTypes.TEXT
         },
+
+        imgPath: { 
+            type: DataTypes.STRING
+        }
 
     },{
         timestamps: false,
         tableName: 'produto'
     })
+
+    Produto.associate = (models) => {
+        Produto.belongsTo(models.Usuario, {
+            as: "usuario",
+            foreignKey: "usuario_id"
+        })
+    }
+
 
     return Produto
 }

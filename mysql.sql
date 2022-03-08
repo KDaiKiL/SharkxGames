@@ -6,7 +6,7 @@ CREATE TABLE usuario (
     nome VARCHAR(30) NOT NULL,
     sobrenome VARCHAR(30) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    telefone VARCHAR(20) NOT NULL,
+    telefone CHAR(13) NOT NULL,
     cpf CHAR(14) NOT NULL,
     senha VARCHAR(100) NOT NULL,
     data_nascimento CHAR(10) NOT NULL,
@@ -36,20 +36,13 @@ CREATE TABLE produto (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     usuario_id INT(10) UNSIGNED NOT NULL,
     nome VARCHAR(100) NOT NULL,
-    categoria VARCHAR(50) NOT NULL,
-    preco VARCHAR(10) NOT NULL,
-    desconto VARCHAR(10) NOT NULL,
+    categoria VARCHAR(50),
+    preco DECIMAL(10, 2) NOT NULL,
+    desconto DECIMAL(10),
     descricao VARCHAR(1000),
+    imgPath VARCHAR(100),
     PRIMARY KEY (id),
     FOREIGN KEY user_fk (usuario_id) REFERENCES usuario(id)
-);
-
-CREATE TABLE imagem (
-    id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    carrinho VARCHAR(100) NOT NULL,
-    produto_id INT(10) UNSIGNED NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY produto_fk (produto_id) REFERENCES produto(id)
 );
 
 CREATE TABLE compra (
