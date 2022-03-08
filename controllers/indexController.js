@@ -21,7 +21,7 @@ const indexController = {
 
     if(cock != undefined && usuario != null) {
       if(bcrypt.compareSync(senha, usuario.senha)) {
-        res.cookie('log', usuario.email, {maxAge: 3600})
+        res.cookie('log', usuario.email, {maxAge: 6000000000})
       }
     }
 
@@ -37,9 +37,6 @@ const indexController = {
         res.render('login.ejs', {erros})
       }
     }
-
-    
-
 
   },
   cadastro: (req, res) => {
@@ -121,6 +118,11 @@ const indexController = {
     
 
    return res.render('item', { produtoId } )
+  },
+  attProduto: async(req, res) => {
+    const { id } = req.params
+    const produto = await Produto.findByPk(id)
+    res.json(produto)
   },
   AtualizarProduto: async(req, res) => {
 

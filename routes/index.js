@@ -47,6 +47,7 @@ router.post('/login', indexController.loginUser)
 
 router.get('/produto/ver',indexController.produtoVer)
 router.get('/produtos/:id',indexController.produtoVerId)
+router.get('/produtos/edit/:id',indexController.attProduto)
 router.post('/cadastro/produto', upload.single('img'),indexController.novoProduto)
 router.put('/produto/update/:id',indexController.AtualizarProduto)
 router.delete('/produto/delete/:id',indexController.DeletarProduto)
