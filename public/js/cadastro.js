@@ -9,6 +9,7 @@ const userNameText = document.querySelector('.userNameText')
 function userNameOuvir(event) {
 
    if (event.target.value.length < 3) {
+       
       userName.style.border = "3px solid orange"
       userName.style.backgroundColor = "#FFA53D"
       userNameText.innerText = "Usuario invalido"
@@ -156,6 +157,39 @@ tell.addEventListener("keyup", function(event) {
    }
 })
 
+
 btn.addEventListener('click', function(event) {
-   tell.value = '55' + tell.value[1] + tell.value[2] + tell.value[5] + tell.value[6] + tell.value[7] + tell.value[8] + tell.value[9] + tell.value[13] + tell.value[14] + tell.value[15] + tell.value[16]
+    if(tell.value.length == 17) {
+        tell.value = tell.value 
+     }
+
+   if ( userName.value.length < 3 || nameInput.value.length < 2 || sobrenomeInput.value.length < 6) { 
+    event.preventDefault()
+
+    Swal.fire({
+        icon: 'error',
+        title: 'Informações invalidas',
+        text: 'as informações não foram preenchidas corretamente',
+        footer: 'deseja voltar para <a href="/home">home</a>'
+      })
+
+    } 
+    // if (nameInput.value.length < 2)  {
+    //     event.preventDefault()
+
+    //     Swal.fire({
+    //         icon: 'error',
+    //         title: 'Nome invalido',
+    //         text: 'Os caracteres não foram alcançado',
+    //         footer: 'desejar voltar para <a href="">home</a>'
+    //       })
+    // }   
+    
+    
+
+    
+
 })
+
+
+

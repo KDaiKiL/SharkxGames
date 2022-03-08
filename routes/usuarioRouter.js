@@ -27,6 +27,7 @@ router.post('/usuario/criar',logUser, [
    check("email").isEmail() ,
     
 ], indexController.criarUsuario)
+router.get('/usuario/error',indexController.criarUsuario)
 router.put('/usuarios/:id/edit',indexController.editarUsuario)
 router.post('/usuario/sair',indexController.sairConta)
 
