@@ -10,56 +10,26 @@ body {
   margin: 0pc;
 }
 
+#btnCompra {
+  margin-top: 35px;
+  background-color: #419417;
+  color: white;
+  width: 210px;
+  height: 52.31px;
+  font-size: 21px;
+  border-radius: 23px;
+  outline: none;
+  border: none;
+}
 
-.formasDePagamento{
-    display: flex;
-   justify-content: center;
-  
-   
- }
- .caixaDePagamento{
-   background-color: #B3B9C0;
-   margin: 5px;
-   border: none;
-   outline: none;
-   width: 407.44px;
-   height: 53.41px;
- 
- }
- 
- #mainPagamento{
-   background-color: #1F2937;
- }
- 
- .separamentoDoInputNumeroDeCartao{
-   margin: 8px;
-   display: flex;
- }
- 
- .inputNumeroDoCartao {
-   width: 170px;
-   height: 32px;
-   outline: none;
-   border: none;
- }
- 
- #realizarCompra{
-   width: 377px;
-   height: 75px;
-   border: none;
-   outline: none;
-   border-radius: 20px;
-   background-color: #636568;
-   
- 
- }
- 
- .alinhar {
-   display: flex;
-   justify-content: center;
-   align-items: center ;
- }
- 
- h4 {
-   margin-right: 10px;
- }
+#btnCompra:hover {
+  background-color: #398015;
+  transform: scale(1.02);
+  transition: all 0.15s
+}
+
+#btnCompra:active {
+  background-color: #347414;
+  transform: scale(1);
+  transition: all 0.15s
+}

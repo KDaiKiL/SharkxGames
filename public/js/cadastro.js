@@ -23,8 +23,6 @@ function userNameOuvir(event) {
       userNameText.style.color = "#66FC65"
 
    }
-
-
 }
 
 
@@ -159,9 +157,6 @@ tell.addEventListener("keyup", function(event) {
 
 
 btn.addEventListener('click', function(event) {
-    if(tell.value.length == 17) {
-        tell.value = tell.value 
-     }
 
    if ( userName.value.length < 3 || nameInput.value.length < 2 || sobrenomeInput.value.length < 6) { 
     event.preventDefault()

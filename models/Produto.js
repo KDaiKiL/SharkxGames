@@ -27,10 +27,6 @@ module.exports = (sequelize,DataTypes) => {
         desconto: { 
             type: DataTypes.DECIMAL
         },
-
-        categoria: { 
-            type: DataTypes.STRING
-        },
         
         descricao: { 
             type: DataTypes.TEXT

@@ -12,7 +12,7 @@ body {
 
 
 main {
-  background-color: #626262;
+  background-color: #4b4c54;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,7 +76,7 @@ h1 {
 }
 
 .precos {
-  background: #3c3c3c;
+  background: #161a26d9;
   padding: 10px 20px 18px 20px;
   display: flex;
   flex-direction: column;
@@ -108,7 +108,7 @@ h1 {
 }
 
 .precosReal {
-  font-size: 34px;
+  font-size: 28px;
   line-height: 33px;
   color: #52DD58;
 }
@@ -134,7 +134,6 @@ h1 {
   width: 156px;
 }
 
-
 .caixa > img {
   width: 200.82px;
   height: 215.32px;
@@ -147,7 +146,7 @@ h1 {
 .d-block {
   width: 900px; 
   height: 338px;
-} 
+}
 
 @media (max-width: 1351px) {
   #carouselExampleIndicators {

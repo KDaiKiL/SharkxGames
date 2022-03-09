@@ -7,7 +7,9 @@ const { Usuario, Produto, Cartao, Imagem } = require('../models')
 const indexController = {
   index: async(req, res) => {
 
-    const produtos = await Produto.findAll()
+    const produtos = await Produto.findAll({
+      limit: 5
+    })
 
     res.render('index', {produtos} ) 
   },
@@ -54,14 +56,11 @@ const indexController = {
     if(acont == null) {
       res.render('not-found')
     } else {
-      res.json(acont)
+      res.render('contaId', { user: acont })
     }
   },
   pagamento: (req, res) => {
     return res.render('formaDePagamento')
-  },
-  carrinho: (req, res) => {
-    return res.render('carrinho')
   },
   item: (req, res) => {
     return res.render('item')
@@ -78,13 +77,12 @@ const indexController = {
   novoProduto: async(req, res) => {
     const { id } = req.session.usuario
     let img = '/images/upload/' + req.file.originalname
-    const { nome, preco, desconto, categoria, descricao } = req.body
-    const produto = await Produto.create({
+    const { nome, preco, desconto, descricao } = req.body
+    await Produto.create({
       nome,
       usuario_id: id,
       preco,
       desconto,
-      categoria,
       descricao,
       imgPath: img
     })
@@ -104,40 +102,46 @@ const indexController = {
 
   produtoVerId: async(req, res) => {
     const { id } = req.params
-
+    const user = req.session.usuario
     const produtoId = await Produto.findByPk(id, {
       include: {
         association: 'usuario'
       }
     })
-    
 
     if(!produtoId) {
       return res.render('telasError/idError', { id } )
+    } else {
+      return res.render('item', { produtoId, user } )
     }
-    
-
-   return res.render('item', { produtoId } )
-  },
-  attProduto: async(req, res) => {
-    const { id } = req.params
-    const produto = await Produto.findByPk(id)
-    res.json(produto)
   },
   AtualizarProduto: async(req, res) => {
 
     const { id } = req.params
+    const produto = await Produto.findByPk(id)
+    let img = produto.imgPath
+    
+    if(req.file != undefined) {
+      img = '/images/upload/' + req.file.originalname
+    }
 
-    const { nome, preco, desconto, categoria } = req.body
-
-    const Update = await Produto.update({ nome, preco, desconto, categoria }, {
+    const { nome, preco, desconto, descricao } = req.body
+    
+    const update = await Produto.update({ 
+      nome,
+      usuario_id: req.session.usuario.id,
+      preco,
+      desconto,
+      descricao,
+      imgPath: img
+    }, {
       where: { id }
     })
-
-    if (Update == 1) {
-      return res.status(201).json({ mensagem: 'Sua alteração foi feita com sucesso' })
+    
+    if (update == 1) {
+      return res.status(201).redirect('/home')
     } else {
-      return res.status(404).json({ mensagem: 'Sua alteração já foi realizada' })
+      return res.status(404).redirect('/produtos/' + id)
     }
 
   },
@@ -151,19 +155,20 @@ const indexController = {
     })
 
     if(destruir == 1){
-      return res.status(204).json({ mensagem: "O usuario foi deletado"})
+      return res.status(204).redirect('/home')
    }else {
-     return res.status(204).json({ mensagem: "O usuario já foi deletado"})
+      return res.status(404).redirect('/produtos/' + id)
    }
 
   },
 
   PegarCartao: async(req, res) => {
+    const { id } = req.params
+    const usuario = req.session.usuario
+    const user = await Usuario.findByPk(usuario.id)
+    const produtoId = await Produto.findByPk(id)
 
-    const cartao = await Cartao.findAll()
-
-    res.json(cartao)
-
+    res.render('formaDePagamento', { produtoId, user })
   },
 
   PegarCartaoID: async(req, res) => {

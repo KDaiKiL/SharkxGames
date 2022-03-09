@@ -24,7 +24,6 @@ router.get('/home', indexController.index)
 router.get('/pagamento', auth, indexController.pagamento)
 router.get('/editar', auth, indexController.editarProduto)
 router.get('/cadastro', login, indexController.cadastro)
-router.get('/carrinho', auth, indexController.carrinho)
 router.get('/login', login, indexController.login)
 router.get('/conta', auth, indexController.conta)
 router.get('/item', indexController.item)
@@ -47,15 +46,14 @@ router.post('/login', indexController.loginUser)
 
 router.get('/produto/ver',indexController.produtoVer)
 router.get('/produtos/:id',indexController.produtoVerId)
-router.get('/produtos/edit/:id',indexController.attProduto)
 router.post('/cadastro/produto', upload.single('img'),indexController.novoProduto)
-router.put('/produto/update/:id',indexController.AtualizarProduto)
-router.delete('/produto/delete/:id',indexController.DeletarProduto)
+router.put('/produto/update/:id/edit', upload.single('img'),indexController.AtualizarProduto)
+router.delete('/produto/delete/:id/del',indexController.DeletarProduto)
 
 
 //Cartao
 
-router.get('/cartao', indexController.PegarCartao)
+router.get('/produtos/:id/comprar', auth,indexController.PegarCartao)
 router.get('/cartao/:id', indexController.PegarCartaoID)
 router.post('/cartao/cadastrar',indexController.cadastrarCartao)
 router.put('/cartao/update/:id',indexController.updateCartao)
