@@ -2,7 +2,7 @@ const fs = require('fs');
 const { v4: uuid } = require('uuid');
 const {check,validationResult,body} = require('express-validator')
 const bcrypt = require('bcrypt')
-const { Usuario, Produto, Cartao, Imagem } = require('../models')
+const { Usuario, Produto, Cartao, Compra } = require('../models')
 
 const indexController = {
   index: async(req, res) => {
@@ -164,21 +164,9 @@ const indexController = {
 
   PegarCartao: async(req, res) => {
     const { id } = req.params
-    const usuario = req.session.usuario
-    const user = await Usuario.findByPk(usuario.id)
     const produtoId = await Produto.findByPk(id)
 
-    res.render('formaDePagamento', { produtoId, user })
-  },
-
-  PegarCartaoID: async(req, res) => {
-
-    const { id } = req.params
-
-    const cartao = await Cartao.findByPk(id)
-
-    res.json(cartao)
-
+    res.render('formaDePagamento', { produtoId })
   },
 
   error: (req,res) => {
@@ -186,84 +174,40 @@ const indexController = {
   },
 
   cadastrarCartao: async(req, res) => {
-
-    const { nome, bandeira, numero, tipo, cvv } = req.body
-
-    const cartaoCadastrado = await Cartao.create({
-
-      id: uuid(),
+    const usuarioId = req.session.usuario.id
+    const { id } = req.params
+    const { nome, bandeira, numero, tipo, validade, cvv } = req.body
+    const cartao = await Cartao.create({
       nome,
       bandeira,
       numero,
       tipo,
+      validade,
       cvv
-
     })
 
-    res.json(cartaoCadastrado)
-  },
 
-  updateCartao: async(req, res) => {
-
-    const { id } = req.params
-
-    const { nome, bandeira, numero, tipo, cvv } = req.body
-
-    const Update = await Cartao.update({
-      nome,
-      bandeira,
-      numero,
-      tipo,
-      cvv
-    }, { where: { id } })
-
-    if (Update == 1) {
-      return res.status(204).json({ mensagem: 'Sua alteração foi feita com sucesso' })
-    } else {
-      return res.status(204).json({ mensagem: 'Sua alteração já foi realizada' })
-    }
-  },
-  destruirCartao: async(req, res) => {
-    const { id } = req.params
-
-    const destruir = await Cartao.destroy({
-      where: { id }
+    const compra = await Compra.create({
+      frete: 0,
+      usuario_id: usuarioId,
+      produto_id: parseInt(id),
+      cartao_id: cartao.id
     })
 
-    if(destruir == 1){
-      return res.status(204).json({ mensagem: "O cartão foi deletado"})
-   }else {
-     return res.status(204).json({ mensagem: "O cartão já foi deletado"})
-   }
-
+    res.redirect('/sucessoCompra')
   },
 
   criarUsuario: async(req, res) => {
 
     const { username, nome, sobrenome, data_nascimento, email, senha, telefone, cpf, cep, endereco, estado, cidade, bairro, referencia, numero, complemento } = req.body
 
-    const listaDeError =  validationResult(req)
-
     const password = bcrypt.hashSync(senha, 10)
-
-    if(listaDeError.isEmpty()) {
-        await Usuario.create({
-        username, nome, sobrenome, data_nascimento, email, senha: password, telefone, cpf, cep, endereco, estado, cidade, bairro, referencia, numero, complemento
-      })
-
-      res.redirect("/login")
-
-   } else {
-     
- 
-return res.render('cadastro')
-
-     
-  }
-
-   
-
     
+    await Usuario.create({
+    username, nome, sobrenome, data_nascimento, email, senha: password, telefone, cpf, cep, endereco, estado, cidade, bairro, referencia, numero, complemento
+    })
+
+    res.redirect("/login")  
   },
 
   termos: (req, res) => {
@@ -308,60 +252,9 @@ return res.render('cadastro')
     req.session.usuario = undefined
     res.redirect('/login')
   },
+  susses: async(req, res) => {
+    res.render('sucesso')
+  }
 };
 
 module.exports = indexController;
-
-//   "errors": [
-
-//     {
-//       "value": "q",
-//       "msg": "Invalid value",
-//       "param": "nome",
-//       "location": "body"
-//     },
-
-//     {
-//       "value": "",
-//       "msg": "Invalid value",
-//       "param": "telefone",
-//       "location": "body"
-//     },
-
-//     {
-//       "value": "",
-//       "msg": "Invalid value",
-//       "param": "cpf",
-//       "location": "body"
-//     },
-
-//     {
-//       "value": "",
-//       "msg": "Invalid value",
-//       "param": "endereco",
-//       "location": "body"
-//     },
-
-//     {
-//       "value": "",
-//       "msg": "Invalid value",
-//       "param": "numero",
-//       "location": "body"
-//     },
-
-//     {
-//       "value": "",
-//       "msg": "Invalid value",
-//       "param": "senha",
-//       "location": "body"
-//     },
-
-//     {
-//       "value": "",
-//       "msg": "Invalid value",
-//       "param": "email",
-//       "location": "body"
-//     }
-
-//   ]
-// }

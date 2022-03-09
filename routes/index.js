@@ -54,10 +54,8 @@ router.delete('/produto/delete/:id/del',indexController.DeletarProduto)
 //Cartao
 
 router.get('/produtos/:id/comprar', auth,indexController.PegarCartao)
-router.get('/cartao/:id', indexController.PegarCartaoID)
-router.post('/cartao/cadastrar',indexController.cadastrarCartao)
-router.put('/cartao/update/:id',indexController.updateCartao)
-router.delete('/cartao/delete/:id',indexController.destruirCartao)
+router.post('/cartao/cadastrar/:id',indexController.cadastrarCartao)
+router.get('/sucesso', indexController.susses)
 
 
 router.get('/',indexController.error)

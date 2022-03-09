@@ -61,9 +61,9 @@ header {
 }
 
 #barraDePesquisa:hover {
-  background-color: #bdbdbd;
+  background-color: #b1b1b1;
   border: 2px solid #838383;
-  transition: border 0.05s, background-color 1s;
+  transition: all 0.2s;
 }
 
 .pesquisaOpcoes {
@@ -109,7 +109,7 @@ ol {
 }
 
 .opcoes > li > a:hover {
-  color:rgb(207, 207, 207);
+  color:rgb(182, 182, 182);
   transition: color 0.15s;
 }
 
@@ -166,7 +166,7 @@ ol {
 }
 
 #cadastroEperfil > li > a:hover {
-  color:rgb(207, 207, 207);
+  color:rgb(182, 182, 182);
   transition: color 0.15s;
 }
 
