@@ -254,6 +254,7 @@ const indexController = {
       res.redirect("/login")
 
    } else {
+     
  
 return res.render('cadastro')
 
