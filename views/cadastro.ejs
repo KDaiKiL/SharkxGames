@@ -55,7 +55,7 @@
           <div class="d-flex justify-content-end">
             <div class="inputSeparar"> 
               <label for="">Data de Nascimento:</label> 
-              <input type="date" name="data_nascimento" class="inputCadastro" id="data">
+              <input type="text" name="data_nascimento" class="inputCadastro" id="data">
             </div>
           </div>
 
@@ -65,20 +65,28 @@
               </div>
               <div class="d-flex justify-content-end">
                 <div class="inputSeparar"> <label for="">Criar senha:</label> <input type="password" name="senha"
-                  class="inputCadastro" id="senha"></div>
+                  class="inputCadastro" id="senha"> <div class="UsernameDivP"> <div> <span class="senhaInputText"></span> </div> </div> </div>
                 </div>
     
               <div class="d-flex justify-content-end">
+
                 <div class="inputSeparar"> <label for="">Confirmar senha:</label> <input type="password"
-                    name="senhaConfirmar" class="inputCadastro" id="senhaConfirmar"></div>
+                    name="senhaConfirmar" class="inputCadastro" id="senhaConfirmar"> 
+                    <div class="UsernameDivP"> <div> <span class="senhaConfirmarInputText"></span> </div> </div>
+                    
+                  </div>
+                  
               </div>
           <div class="d-flex justify-content-end">
             <div class="inputSeparar"> <label for="">Telefone:</label> <input type="tel" name="telefone"
-                class="inputCadastro"></div>
+                class="inputCadastro">
+                <div class="UsernameDivP"> <div> <span class="tellInputText"></span> </div> </div>
+              </div>
           </div>
 
           <div class="d-flex justify-content-end">
-            <div class="inputSeparar"> <label for="">CPF:</label> <input type="text" name="cpf" class="inputCadastro">
+            <div class="inputSeparar"> <label for="">CPF:</label> <input type="text" name="cpf" class="inputCadastro" id="cpfInput">
+              <div class="UsernameDivP"> <div> <span class="cpfInputText"></span> </div> </div>
             </div>
           </div>
 
@@ -95,13 +103,15 @@
       
       <div class="d-flex justify-content-end">
         <div class="inputSeparar"> <label for="">CEP:</label> 
-          <input type="text" name="cep" class="inputCadastro">
+          <input type="text" name="cep" id="cepInput" class="inputCadastro">
+          <div class="UsernameDivP"> <div> <span class="cepInputText"></span> </div> </div>
         </div>
       </div>
       
       <div class="d-flex justify-content-end">
-        <div class="inputSeparar"> <label for="">Endereço:</label> <input type="text" name="endereco"
-            class="inputCadastro"> </div>
+        <div class="inputSeparar"> <label for="">Endereço:</label> <input type="text" value="Rua: " name="endereco" id="enderecoInput"class="inputCadastro"> 
+          <div class="UsernameDivP"> <div> <span class="enderecoInputText"></span> </div> </div>
+        </div>
       </div>
       
       <div class="d-flex justify-content-end">
@@ -141,18 +151,23 @@
         <div class="d-flex justify-content-end">
           <div class="inputSeparar">
             <label for="">Cidade:</label> 
-            <input type="text" name="cidade" class="inputCadastro">
+            <input type="text" name="cidade" class="inputCadastro" id="cidadeInput">
+            <div class="UsernameDivP"> <div> <span class="cidadeInputText"></span> </div> </div> 
           </div>
         </div>
         
         <div class="d-flex justify-content-end">
-          <div class="inputSeparar"> <label for="">Bairro:</label> <input type="text" name="bairro"
-            class="inputCadastro"></div>
+          <div class="inputSeparar"> <label for="">Bairro:</label> <input type="text" name="bairro" id="bairroInput"
+            class="inputCadastro">
+            <div class="UsernameDivP"> <div> <span class="bairroInputText"></span> </div> </div> 
+          </div>
           </div>
           
           <div class="d-flex justify-content-end">
-            <div class="inputSeparar"> <label for="">Referência:</label> <input type="text" name="referencia"
-              class="inputCadastro"></div>
+            <div class="inputSeparar"> <label for="">Referência:</label> <input type="text" id="referenciaInput" name="referencia"
+              class="inputCadastro">
+              <div class="UsernameDivP"> <div> <span class="referenciaInputText"></span> </div> </div> 
+            </div>
             </div>
             
             
@@ -162,10 +177,13 @@
         </div>
         
           <div class="d-flex justify-content-center">
-            <div class="inputSeparar"> <label for="">Numero:</label> <input type="text" name="numero" class="inputNumero">
+            <div class="inputSeparar"> <label for="">Numero:</label> <input type="text" name="numero" id="numeroInput" class="inputNumero">
+              <div class="UsernameDivP"> <div> <span class="numeroInputText"></span> </div> </div> 
             </div>
-            <div class="inputSeparar"> <label for="">Complemento:</label> <input type="text" name="complemento"
-                class="inputComplemento"></div>
+            <div class="inputSeparar"> <label for="">Complemento:</label> <input type="text" name="complemento" id="complementoInput"
+                class="inputComplemento">
+                <div class="UsernameDivP"> <div> <span class="complementoInputText"></span> </div> </div> 
+              </div>
           </div>
         
         <div class="d-flex justify-content-center"> <button id="botaoDeCadastro" type="submit">Cadastro</button> </div>
