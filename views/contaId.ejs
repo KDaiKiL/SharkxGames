@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/cadastro.css">
+  <link rel="stylesheet" href="/stylesheets/contaId.css">
+  
+  <%- include('./partials/linkBootstrap') %>
+
+    <title>Conta</title>
+</head>
+
+<body>
+
+  <%- include('./partials/header') %>
+
+    <main>
+
+      <div class="inform1">
+
+        <div class="d-flex justify-content-center">
+          <h3>Dados da conta</h3>
+        </div>
+
+
+        <form action="/usuarios/<%= user.id %>/edit?_method=PUT" method="post" autocomplete="off">
+          
+          <div class="d-flex justify-content-end dados">
+            
+              <div class="d-flex justify-content-end date">
+                <div class="inputSeparar ema"> 
+                  <label for="">Username:</label> 
+                  <div class="inputCadastro">
+                    <p><%= user.username %></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end date">
+                <div class="inputSeparar ema"> 
+                  <label for="">Nome:</label> 
+                  <div class="inputCadastro">
+                    <p><%= user.nome %></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end date">
+                <div class="inputSeparar ema"> 
+                  <label for="">Sobrenome:</label> 
+                  <div class="inputCadastro">
+                    <p><%= user.sobrenome %></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end date">
+                <div class="inputSeparar ema"> 
+                  <label for="">Email:</label> 
+                  <div class="inputCadastro">
+                    <p><%= user.email %></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end date">
+                <div class="inputSeparar ema"> 
+                  <label for="">Telefone:</label> 
+                  <div class="inputCadastro">
+                    <p><%= user.telefone %></p>
+                  </div>
+                </div>
+              </div>
+
+                <div class="d-flex justify-content-center">
+                    <a onClick="history.go(-1)">
+                        <button id="botaoDeCadastro" >Voltar</button>
+                    </a>
+                </div>
+        
+            </div>
+      </form>
+    
+    </main>
+    
+    <%- include('./partials/footer') %>
+    
+  </body>
+  
+</html>
+

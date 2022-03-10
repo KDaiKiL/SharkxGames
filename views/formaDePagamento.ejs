@@ -1,53 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagamento</title>
-    <link rel="stylesheet" href="/stylesheets/pagamento.css">
-    <%- include('./partials/linkBootstrap') %> 
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/cadastro.css">
+  <link rel="stylesheet" href="/stylesheets/pagamento.css">
+
+  <%- include('./partials/linkBootstrap') %>
+
+    <title>Shark</title>
 </head>
+
 <body>
 
-    <%- include('./partials/header') %> 
+  <%- include('./partials/header') %>
 
-    <main id="mainPagamento">
+    <main>
 
-        <div class="d-flex justify-content-center"> <h3>Forma de pagamento</h3></div>
 
-<div class="d-flex justify-content-center">
-<div>
- 
-     <div class=> <button class="caixaDePagamento" id="Crédito"> <h4>Crédito</h4> </button> </div>
-     <div class=> <button class="caixaDePagamento" id="Débito"> <h4>Débito</h4> </button> </div>
-     <div class=> <button class="caixaDePagamento" id="PicPay"> <h4>PicPay</h4> </button> </div>
-     <div class=> <button class="caixaDePagamento" id="Boleto"> <h4>Debito</h4> </button> </div>
+      <div class="inform1">
 
-</div>
- </div>
+        <div class="d-flex justify-content-center">
+          <h3>Informações do cartão</h3>
+        </div>
 
- <div class="d-flex justify-content-center mt-4">
 
- <div>
-<div class="separamentoDoInputNumeroDeCartao"><label for="" class="inputNumeroDoCartao">Número do cartão:</label> <input type="text"></div>
-<div class="separamentoDoInputNumeroDeCartao"><label for="" class="inputNumeroDoCartao">Senha do cartão:</label> <input type="text"></div>
-</div>
+        <form action="/cartao/cadastrar/<%= produtoId.id %> " method="post" autocomplete="off">
+          
+          
+          <div class="d-flex justify-content-end">
+            <div class="inputSeparar"> <label for="">Nome: </label> 
+              <input type="text" name="nome" id="nome" class="inputCadastro">
+              <div class="UsernameDivP"> <div> <span class="nameInputText"></span> </div> </div>
+            </div>
+          </div>
 
-</div>
-
-<div>
-
-<div class="d-flex justify-content-center m-5">
-<div><button id="realizarCompra"> <div class="alinhar"> <h4>Realizar Compra</h4> <img src="/images/add_circle.png" alt=""> </div> </button></div>
-</div>    
-
-</div>
-
-<%- include('./partials/footer') %> 
-    </main>
-
+          <div class="d-flex justify-content-end">
+          <div class="inputSeparar"> <label for="">Bandeira:</label>
+            <select name="bandeira" class="inputCadastro">
+              <option value="mastercard">Mastercard</option>
+              <option value="alelo">Alelo</option>
+              <option value="visa">Visa</option>
+              <option value="elo">Elo</option>
+              <option value="cielo">Cielo</option>
+              <option value="hipercard">Hipercard</option>
+              <option value="bradesco">Bradesco</option>
+              <option value="nukebank">Nukebank</option>
+            </select>
+          </div>
+          </div>
+          
+          <div class="d-flex justify-content-end">
+            <div class="inputSeparar"> <label for="">Número:</label>
+              <input type="text" name="numero" id="numero"
+              class="inputCadastro"></div>  
+            </div>
+            
+            <div class="d-flex justify-content-end">
+          <div class="inputSeparar"> <label for="">Tipo:</label>
+            <select name="tipo" class="inputCadastro">
+              <option value="debito">Débito</option>
+              <option value="credito">Crédito</option>
+            </select>
+          </div>
+          </div>
     
+              <div class="d-flex justify-content-end">
+                <div class="inputSeparar"> <label for="">Validade:</label>
+                  <input type="text" name="validade" class="inputCadastro" id="validade"></div>
+              </div>
 
-</body>
+          <div class="d-flex justify-content-end">
+            <div class="inputSeparar"> <label for="">cvv:</label>
+              <input type="text" name="cvv" class="inputCadastro">
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+            
+            <div class="d-flex justify-content-center">
+                <button id="btnCompra">Realizar compra</button> 
+            </div>   
+
+        </form>
+      </div>
+        
+      </form>
+      
+    </div>
+    
+    
+    </main>
+    
+    <%- include('./partials/footer') %>
+
+  </body>
+  
 </html>

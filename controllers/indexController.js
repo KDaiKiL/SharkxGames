@@ -2,13 +2,15 @@ const fs = require('fs');
 const { v4: uuid } = require('uuid');
 const {check,validationResult,body} = require('express-validator')
 const bcrypt = require('bcrypt')
-const { Usuario, Produto, Cartao, Imagem } = require('../models')
+const { Usuario, Produto, Cartao, Compra } = require('../models')
 
 
 const indexController = {
   index: async(req, res) => {
 
-    const produtos = await Produto.findAll()
+    const produtos = await Produto.findAll({
+      limit: 5
+    })
 
     res.render('index', {produtos} ) 
   },
@@ -55,14 +57,11 @@ const indexController = {
     if(acont == null) {
       res.render('not-found')
     } else {
-      res.json(acont)
+      res.render('contaId', { user: acont })
     }
   },
   pagamento: (req, res) => {
     return res.render('formaDePagamento')
-  },
-  carrinho: (req, res) => {
-    return res.render('carrinho')
   },
   item: (req, res) => {
     return res.render('item')
@@ -120,40 +119,46 @@ const indexController = {
 
   produtoVerId: async(req, res) => {
     const { id } = req.params
-
+    const user = req.session.usuario
     const produtoId = await Produto.findByPk(id, {
       include: {
         association: 'usuario'
       }
     })
-    
 
     if(!produtoId) {
       return res.render('telasError/idError', { id } )
+    } else {
+      return res.render('item', { produtoId, user } )
     }
-    
-
-   return res.render('item', { produtoId } )
-  },
-  attProduto: async(req, res) => {
-    const { id } = req.params
-    const produto = await Produto.findByPk(id)
-    res.json(produto)
   },
   AtualizarProduto: async(req, res) => {
 
     const { id } = req.params
+    const produto = await Produto.findByPk(id)
+    let img = produto.imgPath
+    
+    if(req.file != undefined) {
+      img = '/images/upload/' + req.file.originalname
+    }
 
-    const { nome, preco, desconto, categoria } = req.body
-
-    const Update = await Produto.update({ nome, preco, desconto, categoria }, {
+    const { nome, preco, desconto, descricao } = req.body
+    
+    const update = await Produto.update({ 
+      nome,
+      usuario_id: req.session.usuario.id,
+      preco,
+      desconto,
+      descricao,
+      imgPath: img
+    }, {
       where: { id }
     })
-
-    if (Update == 1) {
-      return res.status(201).json({ mensagem: 'Sua alteração foi feita com sucesso' })
+    
+    if (update == 1) {
+      return res.status(201).redirect('/home')
     } else {
-      return res.status(404).json({ mensagem: 'Sua alteração já foi realizada' })
+      return res.status(404).redirect('/produtos/' + id)
     }
 
   },
@@ -167,29 +172,18 @@ const indexController = {
     })
 
     if(destruir == 1){
-      return res.status(204).json({ mensagem: "O usuario foi deletado"})
+      return res.status(204).redirect('/home')
    }else {
-     return res.status(204).json({ mensagem: "O usuario já foi deletado"})
+      return res.status(404).redirect('/produtos/' + id)
    }
 
   },
 
   PegarCartao: async(req, res) => {
-
-    const cartao = await Cartao.findAll()
-
-    res.json(cartao)
-
-  },
-
-  PegarCartaoID: async(req, res) => {
-
     const { id } = req.params
+    const produtoId = await Produto.findByPk(id)
 
-    const cartao = await Cartao.findByPk(id)
-
-    res.json(cartao)
-
+    res.render('formaDePagamento', { produtoId })
   },
 
   error: (req,res) => {
@@ -197,84 +191,40 @@ const indexController = {
   },
 
   cadastrarCartao: async(req, res) => {
-
-    const { nome, bandeira, numero, tipo, cvv } = req.body
-
-    const cartaoCadastrado = await Cartao.create({
-
-      id: uuid(),
+    const usuarioId = req.session.usuario.id
+    const { id } = req.params
+    const { nome, bandeira, numero, tipo, validade, cvv } = req.body
+    const cartao = await Cartao.create({
       nome,
       bandeira,
       numero,
       tipo,
+      validade,
       cvv
-
     })
 
-    res.json(cartaoCadastrado)
-  },
 
-  updateCartao: async(req, res) => {
-
-    const { id } = req.params
-
-    const { nome, bandeira, numero, tipo, cvv } = req.body
-
-    const Update = await Cartao.update({
-      nome,
-      bandeira,
-      numero,
-      tipo,
-      cvv
-    }, { where: { id } })
-
-    if (Update == 1) {
-      return res.status(204).json({ mensagem: 'Sua alteração foi feita com sucesso' })
-    } else {
-      return res.status(204).json({ mensagem: 'Sua alteração já foi realizada' })
-    }
-  },
-  destruirCartao: async(req, res) => {
-    const { id } = req.params
-
-    const destruir = await Cartao.destroy({
-      where: { id }
+    const compra = await Compra.create({
+      frete: 0,
+      usuario_id: usuarioId,
+      produto_id: parseInt(id),
+      cartao_id: cartao.id
     })
-
-    if(destruir == 1){
-      return res.status(204).json({ mensagem: "O cartão foi deletado"})
-   }else {
-     return res.status(204).json({ mensagem: "O cartão já foi deletado"})
-   }
-
+    // res.json(compra)
+    res.redirect('/sucesso')
   },
 
   criarUsuario: async(req, res) => {
 
     const { username, nome, sobrenome, data_nascimento, email, senha, telefone, cpf, cep, endereco, estado, cidade, bairro, referencia, numero, complemento } = req.body
 
-    const listaDeError =  validationResult(req)
-
     const password = bcrypt.hashSync(senha, 10)
-
-    if(listaDeError.isEmpty()) {
-        await Usuario.create({
-        username, nome, sobrenome, data_nascimento, email, senha: password, telefone, cpf, cep, endereco, estado, cidade, bairro, referencia, numero, complemento
-      })
-
-      res.redirect("/login")
-
-   } else {
-     
- 
-return res.render('cadastro')
-
-     
-  }
-
-   
-
     
+    await Usuario.create({
+    username, nome, sobrenome, data_nascimento, email, senha: password, telefone, cpf, cep, endereco, estado, cidade, bairro, referencia, numero, complemento
+    })
+
+    res.redirect("/login")  
   },
 
   termos: (req, res) => {
@@ -319,6 +269,9 @@ return res.render('cadastro')
     req.session.usuario = undefined
     res.redirect('/login')
   },
+  susses: async(req, res) => {
+    res.render('sucesso')
+  }
 };
 
 module.exports = indexController;

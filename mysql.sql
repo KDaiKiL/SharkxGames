@@ -1,4 +1,4 @@
-CREATE DATABASE sharkx
+
  
 CREATE TABLE usuario (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -50,7 +50,7 @@ CREATE TABLE compra (
     usuario_id INT(10) UNSIGNED NOT NULL,
     produto_id INT(10) UNSIGNED NOT NULL,
     cartao_id INT(10) UNSIGNED NOT NULL,
-    frete VARCHAR(10),
+    frete DECIMAL(10, 2),
     PRIMARY KEY (id),
     FOREIGN KEY cliente_fk (usuario_id) REFERENCES usuario(id),
     FOREIGN KEY mercadoria_fk (produto_id) REFERENCES produto(id),

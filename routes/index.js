@@ -15,7 +15,6 @@ router.get('/home', indexController.index)
 router.get('/pagamento', auth, indexController.pagamento)
 router.get('/editar', auth, indexController.editarProduto)
 router.get('/cadastro', login, indexController.cadastro)
-router.get('/carrinho', auth, indexController.carrinho)
 router.get('/login', login, indexController.login)
 router.get('/conta', auth, indexController.conta)
 router.get('/item', indexController.item)
@@ -38,14 +37,11 @@ router.post('/login', indexController.loginUser)
 
 
 
-
 //Cartao
 
-router.get('/cartao', indexController.PegarCartao)
-router.get('/cartao/:id', indexController.PegarCartaoID)
-router.post('/cartao/cadastrar',indexController.cadastrarCartao)
-router.put('/cartao/update/:id',indexController.updateCartao)
-router.delete('/cartao/delete/:id',indexController.destruirCartao)
+router.get('/produtos/:id/comprar', auth,indexController.PegarCartao)
+router.post('/cartao/cadastrar/:id',indexController.cadastrarCartao)
+router.get('/sucesso', indexController.susses)
 
 
 router.get('/',indexController.error)

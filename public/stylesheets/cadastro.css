@@ -14,7 +14,7 @@ body {
  
 /*MAIN*/
 main {
-  background-color: #1F2937;
+  background-color: #040f20;
   display: flex;
   justify-content: center;
   padding-right: 80px;
@@ -62,6 +62,17 @@ label {
   font-size: 22px;
   border-radius: 23px;
 }
+#salvar {
+  margin-top: 67px;
+  background-color: #70e5b7b3;
+  color: white;
+  width: 200px;
+  height: 49.31px;
+  font-size: 22px;
+  border-radius: 23px;
+  border: none
+}
+
 
 #botaoDeCadastro:hover {
   background-color: #187488;

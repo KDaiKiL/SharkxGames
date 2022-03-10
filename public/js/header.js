@@ -9,15 +9,21 @@ window.addEventListener('load', () => {
   ofertas.addEventListener("click", function () {
 
     if (window.location.href != "http://localhost:3000/home") {
-      window.location.replace("http://localhost:3000/home")
-    }
+      window.location.replace("http://localhost:3000/home/#ofertasDia")
 
-    if (window.location.href == "http://localhost:3000/home") {
+    }else{
       window.scroll({
         top: 800,
         behavior: "smooth",
       })
     }
+
+    // if (window.location.href == "http://localhost:3000/home") {
+    //   window.scroll({
+    //     top: 800,
+    //     behavior: "smooth",
+    //   })
+    // }
   });
 
 })
