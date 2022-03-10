@@ -93,7 +93,7 @@ background-color: transparent;
 width: 95%;
 height: 177px;
 margin: 20px 0;
-background-color: #72757B;
+background-color: #555e70;
 }
 
 .espacoItem{
@@ -227,6 +227,7 @@ textarea {
 
 .imgContainer img:hover {
   transform: scale(1.01);
+  cursor: pointer;
   filter: brightness(0.85) drop-shadow(2px 4px 6px rgb(31, 31, 31));
   transition: all 0.15s
 }
