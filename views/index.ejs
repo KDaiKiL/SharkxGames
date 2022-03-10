@@ -139,7 +139,10 @@
               <% } else { %>  
                 <p class="precoReal"><%=  parseFloat(produto.preco).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %></p>
                 <span class="precosComDesconto"><%= parseFloat(produto.preco - produto.desconto*produto.preco/100).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %></span>
-                <p class="desconto"></p> <%= produto.desconto %>% de desconto</p>
+                <p class="desconto">
+                  <%= produto.desconto %>% de desconto
+                </p> 
+              </p>
                 <div>
                   <p class="frete">6x de <%= parseFloat((produto.preco - produto.desconto*produto.preco/100)/6).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </p>
                   <p class="juros">Ou 12x de <%= parseFloat((produto.preco - produto.desconto*produto.preco/100)/12).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> sem juros</p>

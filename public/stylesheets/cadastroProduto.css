@@ -1,5 +1,5 @@
 main {
-    background-color: #565656;
+    background-color: #4b4c54;
 }
 
 .cadProduto {
@@ -23,7 +23,8 @@ main {
 }
 
 textarea {
-    padding: 10px 14px
+    padding: 10px 14px;
+    resize: none !important;
 }
 
 .cadProduto form div input {
@@ -36,3 +37,53 @@ textarea {
     color: #cacdde;
     margin-bottom: 3px;
 } 
+
+#sub {
+    margin-top: 40px;
+    background-color: #177D94;
+    color: white;
+    width: 200px;
+    height: 49.31px;
+    font-size: 22px;
+    border-radius: 23px;
+    border: none;
+}
+
+#sub:hover {
+    background-color: #15748a;
+    transform: scale(1.02);
+    transition: all 0.15s
+}
+
+#sub:active {
+    background-color: #136577;
+    transform: scale(1);
+    transition: all 0.15s
+}
+
+#files {
+    display: none
+}
+
+label img {
+    width: 200px;
+}
+
+label img:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+  filter: brightness(0.85) drop-shadow(2px 4px 6px rgb(31, 31, 31));
+  transition: all 0.15s
+}
+
+label img:active {
+  transform: scale(1.01);
+  filter: contrast(0.95);
+  transition: all 0.2s;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
