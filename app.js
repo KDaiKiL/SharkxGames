@@ -3,6 +3,7 @@ const app = express();
 
 const indexRouter = require('./routes/index');
 const routerUsuario = require('./routes/usuarioRouter')
+const routerProduto = require('./routes/produtoRouter')
 
 const methodOverride = require('method-override')
 const Sequelize = require('sequelize')
@@ -30,8 +31,8 @@ app.use(Logmiddleware)
 
 // rotas
 
-app.use(indexRouter)
-app.use(routerUsuario)
+app.use(indexRouter,routerUsuario,routerProduto)
+
 
 
 app.use((req, res, next) => {

@@ -4,6 +4,7 @@ const {check,validationResult,body} = require('express-validator')
 const bcrypt = require('bcrypt')
 const { Usuario, Produto, Cartao, Imagem } = require('../models')
 
+
 const indexController = {
   index: async(req, res) => {
 
@@ -77,19 +78,34 @@ const indexController = {
   },
   novoProduto: async(req, res) => {
     const { id } = req.session.usuario
-    let img = '/images/upload/' + req.file.originalname
+    let img = "/images/blue-shark-logo.png"
     const { nome, preco, desconto, categoria, descricao } = req.body
-    const produto = await Produto.create({
-      nome,
-      usuario_id: id,
-      preco,
-      desconto,
-      categoria,
-      descricao,
-      imgPath: img
-    })
-    res.redirect('/home')
+
+    const listaDeError = validationResult(req)
+
+    if (req.file != undefined) {
+      img = "/images/upload/" + req.file.originalname;
+  } 
+
+    if(listaDeError.isEmpty()) {
+      await Produto.create({
+        nome,
+        usuario_id: id,
+        preco,
+        desconto,
+        categoria,
+        descricao,
+        imgPath: img
+      })
+      
+     return res.redirect('/home')
+    }
+    return res.json(listaDeError)
+    
+
   },
+
+
   editarProduto: (req, res) => {
     return res.render('atualizarProduto')
   },
@@ -306,57 +322,3 @@ return res.render('cadastro')
 };
 
 module.exports = indexController;
-
-//   "errors": [
-
-//     {
-//       "value": "q",
-//       "msg": "Invalid value",
-//       "param": "nome",
-//       "location": "body"
-//     },
-
-//     {
-//       "value": "",
-//       "msg": "Invalid value",
-//       "param": "telefone",
-//       "location": "body"
-//     },
-
-//     {
-//       "value": "",
-//       "msg": "Invalid value",
-//       "param": "cpf",
-//       "location": "body"
-//     },
-
-//     {
-//       "value": "",
-//       "msg": "Invalid value",
-//       "param": "endereco",
-//       "location": "body"
-//     },
-
-//     {
-//       "value": "",
-//       "msg": "Invalid value",
-//       "param": "numero",
-//       "location": "body"
-//     },
-
-//     {
-//       "value": "",
-//       "msg": "Invalid value",
-//       "param": "senha",
-//       "location": "body"
-//     },
-
-//     {
-//       "value": "",
-//       "msg": "Invalid value",
-//       "param": "email",
-//       "location": "body"
-//     }
-
-//   ]
-// }

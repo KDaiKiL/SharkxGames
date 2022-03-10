@@ -10,7 +10,7 @@ main {
 .cadProduto form, .cadProduto form div {
     display: flex;
     flex-direction: column;
-    margin: 15px 0;
+    margin: 5px 0;
 }
 
 .cadProduto form div input, textarea {
@@ -36,3 +36,8 @@ textarea {
     color: #cacdde;
     margin-bottom: 3px;
 } 
+
+.messagem {
+    margin: 0px;
+    margin-bottom: 2px;
+}
