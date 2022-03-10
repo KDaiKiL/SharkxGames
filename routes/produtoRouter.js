@@ -18,14 +18,13 @@ const upload = multer({ storage: storage })
 
 router.get('/produto/ver',indexController.produtoVer)
 router.get('/produtos/:id',indexController.produtoVerId)
-router.get('/produtos/edit/:id',indexController.attProduto)
-
+router.put('/produto/update/:id/edit', upload.single('img'),indexController.AtualizarProduto)
+router.delete('/produto/delete/:id/del',indexController.DeletarProduto)
 router.post('/cadastro/produto', upload.single('img'),cadastroProduto,[
     check("nome").isLength({min:50}),
     check("preco").isLength({min:3, max:30}).notEmpty(),
      check("imgPath").isEmpty() ],indexController.novoProduto)
 
-router.put('/produto/update/:id',indexController.AtualizarProduto)
-router.delete('/produto/delete/:id',indexController.DeletarProduto)
+
 
 module.exports = router  

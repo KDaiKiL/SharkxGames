@@ -29,17 +29,17 @@
         <form action="/usuarios/<%= user.id %>/edit?_method=PUT" method="post" autocomplete="off">
           
           <div class="d-flex justify-content-end">
-            <div class="inputSeparar"> <label for="">Username: </label> <input type="text" name="username" value="<%= user.username %>"
+            <div class="inputSeparar"> <label for="">Username: </label> <input type="text" id="userName" name="username" value="<%= user.username %>"
               class="inputCadastro"></div>
               </div>
               
               <div class="d-flex justify-content-end">
-                <div class="inputSeparar"> <label for="">Nome: </label> <input type="text" name="nome" value="<%= user.nome %>"
+                <div class="inputSeparar"> <label for="">Nome: </label> <input type="text" name="nome" id="name" value="<%= user.nome %>"
                   class="inputCadastro"></div>
                 </div>
                 
                 <div class="d-flex justify-content-end">
-                  <div class="inputSeparar"> <label for="">Sobrenome:</label> <input type="text" name="sobrenome" value="<%= user.sobrenome %>"
+                  <div class="inputSeparar"> <label for="">Sobrenome:</label> <input type="text" name="sobrenome" id="sobrenomeInput" value="<%= user.sobrenome %>"
                     class="inputCadastro"></div>
                   </div>
 
@@ -59,7 +59,7 @@
                 </div>
               </div>
           <div class="d-flex justify-content-end">
-            <div class="inputSeparar"> <label for="">Telefone:</label> <input type="text" name="telefone" value="<%= user.telefone %>"
+            <div class="inputSeparar"> <label for="">Telefone:</label> <input type="text"name="telefone" value="<%= user.telefone %>"
                 class="inputCadastro"></div>
           </div>
 
@@ -75,12 +75,12 @@
       
       <div class="d-flex justify-content-end">
         <div class="inputSeparar"> <label for="">CEP:</label> 
-          <input type="text" name="cep" class="inputCadastro" value="<%= user.cep %>">
+          <input type="text" name="cep" id="cepInput" class="inputCadastro" value="<%= user.cep %>">
         </div>
       </div>
       
       <div class="d-flex justify-content-end">
-        <div class="inputSeparar"> <label for="">Endereço:</label> <input type="text" name="endereco" value="<%= user.endereco %>"
+        <div class="inputSeparar"> <label for="">Endereço:</label> <input type="text" name="endereco" id="enderecoInput" value="<%= user.endereco %>"
             class="inputCadastro"> </div>
       </div>
       
@@ -122,17 +122,17 @@
         <div class="d-flex justify-content-end">
           <div class="inputSeparar">
             <label for="">Cidade:</label> 
-            <input type="text" name="cidade" value="<%= user.cidade %>" class="inputCadastro">
+            <input type="text" name="cidade" id="cidadeInput" value="<%= user.cidade %>" class="inputCadastro">
           </div>
         </div>
         
         <div class="d-flex justify-content-end">
-          <div class="inputSeparar"> <label for="">Bairro:</label> <input type="text" name="bairro" value="<%= user.bairro %>"
+          <div class="inputSeparar"> <label for="">Bairro:</label> <input type="text" id="bairroInput" name="bairro" value="<%= user.bairro %>"
             class="inputCadastro"></div>
           </div>
           
           <div class="d-flex justify-content-end">
-            <div class="inputSeparar"> <label for="">Referência:</label> <input type="text" name="referencia" value="<%= user.referencia %>"
+            <div class="inputSeparar"> <label for="">Referência:</label> <input type="text" id="referenciaInput" name="referencia" value="<%= user.referencia %>"
               class="inputCadastro"></div>
             </div>
             
@@ -143,9 +143,9 @@
         </div>
         
           <div class="d-flex justify-content-center">
-            <div class="inputSeparar"> <label for="">Numero:</label> <input type="text" name="numero" value="<%= user.numero %>" class="inputNumero">
+            <div class="inputSeparar"> <label for="">Numero:</label> <input id="numeroInput" type="text" name="numero" value="<%= user.numero %>" class="inputNumero">
             </div>
-            <div class="inputSeparar"> <label for="">Complemento:</label> <input type="text" name="complemento" value="<%= user.complemento %>"
+            <div class="inputSeparar"> <label for="">Complemento:</label> <input type="text" name="complemento" id="complementoInput" value="<%= user.complemento %>"
                 class="inputComplemento"></div>
           </div>
         
@@ -160,7 +160,7 @@
       </form>
     </div>
     
-    <script src="js/cadastro.js"></script>
+    <script src="js/conta.js"></script>
     </main>
     
     <%- include('./partials/footer') %>
