@@ -68,10 +68,10 @@ const sobrenomeInputText = document.querySelector('.sobrenomeInputText')
 
 function sobrenomeOuvir(event) {
 
-   if (event.target.value.length < 6) {
+   if (event.target.value.length < 3) {
       sobrenomeInput.style.border = "3px solid orange"
       sobrenomeInput.style.backgroundColor = "#FFA53D"
-      sobrenomeInputText.innerText = "O campo sobrenome precisa conter 5 ou mais caracteres"
+      sobrenomeInputText.innerText = "O campo sobrenome precisa conter 3 ou mais caracteres"
       sobrenomeInputText.style.color = "#FFA53D"
 
 
@@ -282,10 +282,10 @@ cepInput.onkeypress = function (e) {
 
 function cepOuvir(event) {
 
-   if (event.target.value.length < 11) {
+   if (event.target.value.length < 9) {
 
       if (event.target.value.length == 5) {
-         this.value = this.value + " - "
+         this.value = this.value + "-"
       }
       cepInput.style.border = "3px solid orange"
       cepInput.style.backgroundColor = "#FFA53D"
@@ -299,7 +299,7 @@ function cepOuvir(event) {
       cepInputText.innerText = "CEP válido"
       cepInputText.style.color = "#66FC65"
    }
-   if(event.target.value.length > 11) {
+   if(event.target.value.length > 9) {
       cepInput.style.border = "3px solid orange"
       cepInput.style.backgroundColor = "#FFA53D"
       cepInputText.innerText = "Insira um CEP válido"
@@ -473,8 +473,8 @@ btn.addEventListener('click', function (event) {
       tell.value = '55' + tell.value[1] + tell.value[2] + tell.value[5] + tell.value[6] + tell.value[7] + tell.value[8] + tell.value[9] + tell.value[13] + tell.value[14] + tell.value[15] + tell.value[16]
    }
    
-   if (userName.value.length < 3 || nameInput.value.length < 2 || sobrenomeInput.value.length < 6 || tell.value.length < 13 
-      || emailInput.value.length < 3 || (emailInput.value[emailInput.value.length - 1] + emailInput.value[emailInput.value.length - 2] + emailInput.value[emailInput.value.length - 3] + emailInput.value[emailInput.value.length - 4] + emailInput.value[emailInput.value.length - 5] + emailInput.value[emailInput.value.length - 6] + emailInput.value[emailInput.value.length - 7] + emailInput.value[emailInput.value.length - 8] + emailInput.value[emailInput.value.length - 9] + emailInput.value[emailInput.value.length - 10]) != 'moc.liamg@' || senhaInput.value.length < 4 ||  cpfInput.value.length < 14 || cpfInput.value.length > 14 || cepInput.value.length < 11 || cepInput.value.length > 11 
+   if (userName.value.length < 3 || nameInput.value.length < 2 || sobrenomeInput.value.length < 3 || tell.value.length < 13 
+      || emailInput.value.length < 3 || (emailInput.value[emailInput.value.length - 1] + emailInput.value[emailInput.value.length - 2] + emailInput.value[emailInput.value.length - 3] + emailInput.value[emailInput.value.length - 4] + emailInput.value[emailInput.value.length - 5] + emailInput.value[emailInput.value.length - 6] + emailInput.value[emailInput.value.length - 7] + emailInput.value[emailInput.value.length - 8] + emailInput.value[emailInput.value.length - 9] + emailInput.value[emailInput.value.length - 10]) != 'moc.liamg@' || senhaInput.value.length < 4 ||  cpfInput.value.length < 14 || cpfInput.value.length > 14 || cepInput.value.length < 9 || cepInput.value.length > 9 
       || enderecoInput.value.length < 8 || cidadeInput.value.length < 2 || bairroInput.value.length < 3 ||
       referenciaInput.value.length < 4 || numeroInput.value.length < 2 || numeroInput.value.length >= 5 || complementoInput.value.length < 4 || senhaInput.value != senhaConfirmarInput.value || data.value.length < 10
    ) {

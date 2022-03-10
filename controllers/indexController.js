@@ -193,8 +193,8 @@ const indexController = {
       produto_id: parseInt(id),
       cartao_id: cartao.id
     })
-
-    res.redirect('/sucessoCompra')
+    // res.json(compra)
+    res.redirect('/sucesso')
   },
 
   criarUsuario: async(req, res) => {
