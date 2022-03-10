@@ -4,6 +4,7 @@ const {check,validationResult,body} = require('express-validator')
 const bcrypt = require('bcrypt')
 const { Usuario, Produto, Cartao, Compra } = require('../models')
 
+
 const indexController = {
   index: async(req, res) => {
 
@@ -76,18 +77,34 @@ const indexController = {
   },
   novoProduto: async(req, res) => {
     const { id } = req.session.usuario
-    let img = '/images/upload/' + req.file.originalname
-    const { nome, preco, desconto, descricao } = req.body
-    await Produto.create({
-      nome,
-      usuario_id: id,
-      preco,
-      desconto,
-      descricao,
-      imgPath: img
-    })
-    res.redirect('/home')
+    let img = "/images/blue-shark-logo.png"
+    const { nome, preco, desconto, categoria, descricao } = req.body
+
+    const listaDeError = validationResult(req)
+
+    if (req.file != undefined) {
+      img = "/images/upload/" + req.file.originalname;
+  } 
+
+    if(listaDeError.isEmpty()) {
+      await Produto.create({
+        nome,
+        usuario_id: id,
+        preco,
+        desconto,
+        categoria,
+        descricao,
+        imgPath: img
+      })
+      
+     return res.redirect('/home')
+    }
+    return res.json(listaDeError)
+    
+
   },
+
+
   editarProduto: (req, res) => {
     return res.render('atualizarProduto')
   },

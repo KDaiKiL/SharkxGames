@@ -1,21 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const indexController = require('../controllers/indexController')
-const multer = require('multer')
+
 const auth = require('../middleware/auth')
 const login = require('../middleware/login')
 
 
-const storage = multer.diskStorage ({
-    destination: (req, file, cb) => {
-        cb(null, './public/images/upload')
-    },
-    filename: (req, file, cb) => {
-        cb(null, file.originalname)
-    }
-})
 
-const upload = multer({ storage: storage })
 
 
 // GET
@@ -44,11 +35,6 @@ router.post('/login', indexController.loginUser)
 
 //Produto
 
-router.get('/produto/ver',indexController.produtoVer)
-router.get('/produtos/:id',indexController.produtoVerId)
-router.post('/cadastro/produto', upload.single('img'),indexController.novoProduto)
-router.put('/produto/update/:id/edit', upload.single('img'),indexController.AtualizarProduto)
-router.delete('/produto/delete/:id/del',indexController.DeletarProduto)
 
 
 //Cartao
