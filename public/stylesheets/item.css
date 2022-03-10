@@ -242,3 +242,7 @@ textarea {
   flex-direction: column;
   align-items: center;
 }
+
+#delete {
+  background-color: red;
+}
